@@ -1,0 +1,32 @@
+body.page > footer {
+  border-top: 3px solid grey;
+  background-color: #181a21;
+  width: 100%;
+  min-height: 300px;
+  padding: 1em;
+}
+body.page > footer .body {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-evenly;
+}
+body.page > footer .body .sitemap a {
+  text-decoration: none;
+  color: grey;
+}
+body.page > footer .body .sitemap .body {
+  display: flex;
+  flex-direction: column;
+  margin: 0.2em 1em;
+}
+body.page > footer .body .sitemap .body a {
+  margin: 0.2em 0em;
+  display: block;
+  border-bottom: 1px grey solid;
+}
+body.page > footer .body .sitemap .body a:hover {
+  border-bottom: 1px lightgrey solid;
+}
+
+/*# sourceMappingURL=footer.css.map */

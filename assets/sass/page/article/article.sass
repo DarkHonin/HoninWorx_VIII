@@ -1,0 +1,49 @@
+
+article
+    z-index: 1
+    margin-top: 1em
+
+    display: flex
+    flex-direction: row
+    min-width: 400px
+    max-width: 700px
+    transition: min-width .2s
+    height: fit-content
+    position: relative
+    justify-content: flex-start
+    overflow: hidden
+
+    &.close
+        min-width: 50px
+        .body
+            margin: 0em
+            padding: 0em
+            overflow: hidden
+
+    
+    
+    @import ./body
+    @import ./footer
+    @import ./parts/taglist
+    
+    
+
+    &.card, &.main
+        overflow: hidden
+        background-color: rgba(0,0,0, .5)
+        min-width: 100%
+        z-index: 1
+        padding: 5em 0em
+        margin: 5em 0em
+        &:nth-of-type(2n + 1)
+            flex-direction: row-reverse
+    &.main
+        min-height: 80vh
+        flex-direction: row !important
+        margin-top: 1em
+
+    .background
+        position: absolute
+        display: block
+        flex: 1
+        background-position: center

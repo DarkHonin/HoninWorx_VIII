@@ -1,0 +1,25 @@
+.project > .body .field {
+  width: auto;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5em 0.5em;
+}
+.project > .body .field.note textarea {
+  resize: none;
+  min-width: 200px;
+  font-family: monospace;
+}
+.project > .body .field header.title {
+  color: white;
+}
+.project > .body .field .input {
+  margin: 0em 1em;
+  max-width: 150px;
+}
+.project > .body .field .input input {
+  margin: auto;
+  width: 100%;
+}
+
+/*# sourceMappingURL=edit.css.map */

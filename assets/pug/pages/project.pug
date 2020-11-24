@@ -1,0 +1,50 @@
+extends ../template.pug
+
+block content
+    - var edit = 0
+
+
+    article.project.big.main
+        - var title = 'Test Project'
+        - var tags = ['these', 'are', 'supposed', 'to', 'be', 'tags']
+        - var note = 'Some text here describing the project, character limit is debateable but will see'
+        - var postImageUrl = '../../img/post.jpg'
+        .body            
+            header.title Project 
+                    span.subtitle __/projectName
+            .note
+                header.title
+                    span Note
+                p.body=note
+            .media
+                header.title
+                    span Posts
+                .body
+                    - var i = 0
+                    while i < 3
+                        a(href='./post.html').post.el
+                            img(src=postImageUrl)
+                            .label
+                                span='Post name_'+(i++)
+                                span.date '10:40 AM 11/22/2020'
+                    
+            footer
+                .meta
+                    header.title
+                        span Meta
+                    .body
+                        span.subtitle Created: 
+                            span.date 10:40 AM 11/19/2020
+                        span.subtitle Updated: 
+                            span.date 10:40 AM 11/22/2020
+                .taglist
+                    header.title
+                        span Project Tags
+                    .taglist
+                        for tag, k in tags
+                            .word(value=k)=tag
+    
+        
+
+        .post.background(style=`background-image: URL("${postImageUrl}")`)
+    

@@ -1,0 +1,25 @@
+article>footer
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+
+    .body
+        margin: 0px
+        padding: 10px
+        font-size: .8em
+        &>*
+            margin: 0px
+            padding: 0px
+            border: none
+
+    header
+        &.title
+            font-size: 1em
+            color: grey
+        .subtitle
+            text-decoration: none
+            color: darkgrey
+            display: block
+            margin-left: 1em
+            .date
+                font-family: "Lucida Console", Monaco, monospace

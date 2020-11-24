@@ -1,0 +1,25 @@
+.field {
+  width: auto;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5em 0.5em;
+}
+.field.note textarea {
+  resize: none;
+  min-width: 200px;
+  font-family: monospace;
+}
+.field header.title {
+  color: white;
+}
+.field .input {
+  margin: 0em 1em;
+  max-width: 150px;
+}
+.field .input input {
+  margin: auto;
+  width: 100%;
+}
+
+/*# sourceMappingURL=field.css.map */

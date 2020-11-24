@@ -1,0 +1,37 @@
+.cards
+    max-width: 250px
+    background-color: transparent
+    width: 100%
+    align-items: flex-end
+    box-shadow: none
+    @import ./toggle
+
+    &.close
+        .toggle
+            span
+                color: red
+
+    &>.title
+        display: flex
+        justify-content: space-between
+    
+    &>.body
+        max-width: 400px
+        width: 100%
+        transition: max-width .2s
+        background-color: rgba(0,0,0, .8)
+        flex-direction: row
+        flex-wrap: wrap
+    &.close
+        .body
+            max-width: 0px
+    .card
+        max-width: 100px
+        img
+            transition: transform .2s
+            width: 100%
+            height: auto
+        &:hover
+            img
+                transform: scale(1.2)
+        

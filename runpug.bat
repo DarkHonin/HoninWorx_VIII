@@ -1,0 +1,1 @@
+pug -w -b public -o public/html assets/pug

@@ -1,0 +1,19 @@
+.sitemap a {
+  text-decoration: none;
+  color: grey;
+}
+.sitemap .body {
+  display: flex;
+  flex-direction: column;
+  margin: 0.2em 1em;
+}
+.sitemap .body a {
+  margin: 0.2em 0em;
+  display: block;
+  border-bottom: 1px grey solid;
+}
+.sitemap .body a:hover {
+  border-bottom: 1px lightgrey solid;
+}
+
+/*# sourceMappingURL=sitemap.css.map */

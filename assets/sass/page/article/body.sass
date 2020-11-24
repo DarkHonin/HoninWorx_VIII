@@ -1,0 +1,29 @@
+.body
+    display: flex
+    flex-direction: column
+    color: white
+    background-color: #020204db
+    transition: max-height 0.2s, margin 0.2s
+    max-height: fit-content
+    transition: height 0.2s
+    position: relative
+    max-width: 800px
+    flex: 1
+    padding: 1em
+    height: min-content
+
+    div
+        max-height: fit-content
+        position: relative
+        transition: height 0.2s
+        header
+            &.title
+                margin: .2em 0em
+                font-size: 1em
+                span
+                    margin-left: 0px
+    .note
+        font-family: "Lucida Console", Monaco, monospace
+    @import ./parts/media
+    
+    

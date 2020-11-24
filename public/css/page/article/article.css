@@ -1,0 +1,160 @@
+article {
+  z-index: 1;
+  margin-top: 1em;
+  display: flex;
+  flex-direction: row;
+  min-width: 400px;
+  max-width: 700px;
+  transition: min-width 0.2s;
+  height: fit-content;
+  position: relative;
+  justify-content: flex-start;
+  overflow: hidden;
+}
+article.close {
+  min-width: 50px;
+}
+article.close .body {
+  margin: 0em;
+  padding: 0em;
+  overflow: hidden;
+}
+article .body {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  background-color: #020204db;
+  transition: max-height 0.2s, margin 0.2s;
+  max-height: fit-content;
+  transition: height 0.2s;
+  position: relative;
+  max-width: 800px;
+  flex: 1;
+  padding: 1em;
+  height: min-content;
+}
+article .body div {
+  max-height: fit-content;
+  position: relative;
+  transition: height 0.2s;
+}
+article .body div header.title {
+  margin: 0.2em 0em;
+  font-size: 1em;
+}
+article .body div header.title span {
+  margin-left: 0px;
+}
+article .body .note {
+  font-family: "Lucida Console", Monaco, monospace;
+}
+article .body .media .body {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+article .body .media .body > .el {
+  border: darkgrey 1px solid;
+  width: 100%;
+  margin: 0.2em;
+  text-decoration: none;
+}
+article .body .media .body > .el .label {
+  flex: 1;
+  color: white;
+  font-size: 1.2em;
+  display: flex;
+  white-space: nowrap;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 1em;
+}
+article .body .media .body > .el .label .date {
+  font-size: 0.7em;
+  color: grey;
+}
+article .body .media .body .post {
+  display: inline-flex;
+  flex-wrap: nowrap;
+}
+article .body .media .body .post:hover {
+  background-color: #1a1a1d;
+}
+article .body .media .body .post img {
+  max-width: 100px;
+  height: auto;
+}
+article article > footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+article article > footer .body {
+  margin: 0px;
+  padding: 10px;
+  font-size: 0.8em;
+}
+article article > footer .body > * {
+  margin: 0px;
+  padding: 0px;
+  border: none;
+}
+article article > footer header.title {
+  font-size: 1em;
+  color: grey;
+}
+article article > footer header .subtitle {
+  text-decoration: none;
+  color: darkgrey;
+  display: block;
+  margin-left: 1em;
+}
+article article > footer header .subtitle .date {
+  font-family: "Lucida Console", Monaco, monospace;
+}
+article .taglist > .taglist {
+  background-color: darkgrey;
+  width: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  padding: 0.2em;
+  margin: 0.5em auto;
+}
+article .taglist .word {
+  display: block;
+  margin: 0.2em;
+  background-color: black;
+  color: white;
+  font-weight: 800;
+  padding: 0.1em;
+}
+article footer .taglist > .taglist {
+  margin: 0.2em 1em;
+}
+article.card, article.main {
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.5);
+  min-width: 100%;
+  z-index: 1;
+  padding: 5em 0em;
+  margin: 5em 0em;
+}
+article.card:nth-of-type(2n + 1), article.main:nth-of-type(2n + 1) {
+  flex-direction: row-reverse;
+}
+article.main {
+  min-height: 80vh;
+  flex-direction: row !important;
+  margin-top: 1em;
+}
+article .background {
+  position: absolute;
+  display: block;
+  flex: 1;
+  background-position: center;
+}
+
+/*# sourceMappingURL=article.css.map */

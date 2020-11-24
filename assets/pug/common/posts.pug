@@ -1,0 +1,13 @@
+article.cards.close
+    header.title Project Posts
+        span.toggle(onClick='this.parentNode.parentNode.classList.toggle("close")')
+            span='><'
+    .body
+        - var postImageUrl = '../../img/post.jpg'
+        - var i = 0
+        while i < 10
+            .card(key=i++)
+                .body
+                    img(src=postImageUrl)
+                .title
+                    span ../postTitle

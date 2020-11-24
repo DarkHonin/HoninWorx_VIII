@@ -1,0 +1,37 @@
+extends ../template.pug
+
+
+block content
+    - var title = 'Test Project'
+    - var tags = ['these', 'are', 'supposed', 'to', 'be', 'tags']
+    - var note = 'Some text here describing the project, character limit is debateable but will see'
+    - var postImageUrl = '../../img/post.jpg'
+    article.main
+        .body            
+            header.title 
+                span Post
+                a(href='./project.html').subtitle __/projectName
+                span(style='text-decoration: none') :
+                span.subtitle __/postName
+            .note
+                header.title
+                    span Note
+                p.body=note
+            .media
+                header.title
+                    span Media
+                .body
+                    a(href=postImageUrl).post.el
+                        img(src=postImageUrl)
+                        .label
+                            span='Image name'
+                            span.date '10:40 AM 11/22/2020'
+            footer
+                .meta
+                    header.title
+                        span Meta
+                    .body
+                        span.subtitle Created: 
+                            span.date 10:40 AM 11/19/2020
+
+        .post.background(style=`background-image: URL("${postImageUrl}")`)

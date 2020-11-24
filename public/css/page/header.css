@@ -1,0 +1,66 @@
+header {
+  background-color: #141417;
+  padding: 0.5em;
+  margin-top: 0px;
+  z-index: 1;
+  color: lightgrey;
+  width: available;
+  width: -webkit-fill-available;
+  display: flex;
+  justify-content: flex-start;
+  white-space: nowrap;
+  font-size: 2em;
+  box-shadow: inset black 0px 0px 5px 0px;
+}
+header span {
+  padding-left: 0.5em;
+  font-size: 1em;
+}
+header.head {
+  min-height: 50px;
+  position: sticky;
+  top: 0px;
+  z-index: 999;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+header .subtitle {
+  font-size: 0.9em;
+  text-decoration: none;
+  color: red;
+  margin-left: 0.2em;
+}
+header .logo {
+  text-decoration: none;
+  display: flex;
+  color: inherit;
+  flex-direction: row;
+  max-width: min-content;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 0.3em;
+}
+header .nav {
+  padding: 0em 1em;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #060610;
+  font-size: 0.7em;
+}
+header .nav .navbtn {
+  display: block;
+  padding: 0.2em 0.5em;
+  margin: 0px 0.2em;
+  transition: background-color 0.2s, color 0.2s;
+  color: white;
+  text-decoration: none;
+}
+header .nav .navbtn:hover, header .nav .navbtn.active {
+  background-color: #726464;
+  color: black;
+}
+
+/*# sourceMappingURL=header.css.map */
