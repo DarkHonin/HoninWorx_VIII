@@ -1,0 +1,37 @@
+.el.list
+    &>footer
+        // border: 2px solid blue
+        &>.body
+            min-height: 20px
+            position: relative
+            width: -webkit-fill-available
+    &>.body
+        display: flex
+        flex-direction: column
+        align-items: stretch
+        height: auto
+        width: -webkit-fill-available
+        
+            
+        
+            
+    &.grid
+        // border: 2px solid blue
+        &>.body
+            flex-direction: row
+            flex-wrap: wrap
+            justify-content: space-evenly
+            align-items: flex-start
+            margin-bottom: 0px
+            padding-bottom: .2em
+            margin-right: 0px
+            .card
+                max-width: 350px
+                @media ( max-width: 800px )
+                    max-width: -webkit-fill-available
+            
+        
+    &>header.title
+        font-size: 2em
+    &>header.title.close + .body
+        max-height: intial

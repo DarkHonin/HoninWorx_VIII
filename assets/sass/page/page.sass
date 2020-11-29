@@ -3,27 +3,25 @@
 article, header
     box-shadow: 0px 0px 10px -5px black
 
+@import ./article/article
+
 .page
-    @import ./background
-    @import ./article/article
+    &>.body
+        margin: 5em 0px
+    &>.article
+        &.card:nth-of-type(2n + 1)
+            &>.body
+                align-self: flex-end
+                margin-right: 1em
+            &>header.title
+                text-align: right
+
     min-width: 100%
     background-color: rgb(10 10 12)
     &>.title
         border-bottom: 3px solid grey
-    footer
         
-        display: flex
-        flex-direction: row
-        justify-content: space-between
-
-        .body
-            margin: 0px
-            padding: 10px
-            font-size: .8em
-            &>*
-                margin: 0px
-                padding: 0px
-                border: none
+            
                 
  
         header
@@ -40,7 +38,7 @@ article, header
 body.page
     @import ./header
     display: flex
-    flex-direction: row
+    flex-direction: column
     flex-wrap: wrap
     justify-content: space-between
     .page.head
@@ -52,4 +50,4 @@ body.page
                 color: white
                 font-size: 3em
 @import ./footer
-                
+@import ./background

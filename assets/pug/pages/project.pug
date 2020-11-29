@@ -3,48 +3,39 @@ extends ../template.pug
 block content
     - var edit = 0
 
-
-    article.project.big.main
-        - var title = 'Test Project'
-        - var tags = ['these', 'are', 'supposed', 'to', 'be', 'tags']
-        - var note = 'Some text here describing the project, character limit is debateable but will see'
-        - var postImageUrl = '../../img/post.jpg'
-        .body            
-            header.title Project 
-                    span.subtitle __/projectName
-            .note
-                header.title
-                    span Note
-                p.body=note
-            .media
-                header.title
-                    span Posts
-                .body
-                    - var i = 0
-                    while i < 3
-                        a(href='./post.html').post.el
-                            img(src=postImageUrl)
-                            .label
-                                span='Post name_'+(i++)
-                                span.date '10:40 AM 11/22/2020'
-                    
-            footer
-                .meta
+    .page
+        article.main.project
+            - var title = '__/projectName'
+            - var tags = ['these', 'are', 'supposed', 'to', 'be', 'tags']
+            - var note = 'Some text here describing the project, character limit is debateable but will see'
+            - var postImageUrl = '../../img/latest.jpg'
+            .body            
+                header.title Project 
+                        span.subtitle=title
+                .el.note
                     header.title
-                        span Meta
+                        span Note
+                    p.body=note                
+                        
+                footer
                     .body
-                        span.subtitle Created: 
-                            span.date 10:40 AM 11/19/2020
-                        span.subtitle Updated: 
-                            span.date 10:40 AM 11/22/2020
-                .taglist
-                    header.title
-                        span Project Tags
-                    .taglist
-                        for tag, k in tags
-                            .word(value=k)=tag
-    
+                        .el.meta
+                            .body
+                                span.date(data-title='Updated')
+                                    span.body 10:40 AM 11/19/2020
+            .post.background(style=`background-image: URL("${postImageUrl}")`)
+    .page
+        header.title
+            span Posts
+        .body
+            .el.list.grid
+                .body
+                    include ../cards/post
+                    include ../cards/post
+                    include ../cards/post
+                footer
+                    .body
+                        a.el.loadmore(title='View More', href='#')
+                            .body
+                                i.fas.fa-arrow-down
         
-
-        .post.background(style=`background-image: URL("${postImageUrl}")`)
-    

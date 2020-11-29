@@ -1,0 +1,23 @@
+.el.loadmore {
+  background-color: #787890;
+  padding: 1em;
+  font-size: 2em;
+  min-width: 30px;
+  max-width: 30px;
+  max-height: 30px;
+  border-radius: 100%;
+  position: absolute;
+  top: calc(100% - 30px);
+  right: calc(50% - 30px);
+  z-index: 99;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.2s;
+  text-decoration: none;
+}
+.el.loadmore:hover {
+  background-color: #40404b;
+}
+
+/*# sourceMappingURL=loadmore.css.map */

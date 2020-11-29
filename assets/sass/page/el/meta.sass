@@ -1,0 +1,29 @@
+.el.meta
+    &>.body
+        margin: 0px
+        flex-direction: column
+        &>.date::before
+            content: 'Date:'
+        &>.ext::before
+            content: 'Extention:'
+        &>.size::before
+            content: 'Size:'
+        &>.name::before
+            content: 'Name:'
+        &>[data-title]::before
+            content: attr(data-title) 
+        &>span
+            display: flex
+            flex-direction: row
+            justify-content: space-between
+            color: grey
+            margin: .2em 0em
+            &::before
+               margin: auto 1em 
+            &>.body
+                display: inline-block
+                margin: auto 1em
+                color: white
+                
+
+

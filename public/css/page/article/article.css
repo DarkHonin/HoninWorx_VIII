@@ -2,159 +2,179 @@ article {
   z-index: 1;
   margin-top: 1em;
   display: flex;
-  flex-direction: row;
-  min-width: 400px;
-  max-width: 700px;
+  flex-direction: column;
   transition: min-width 0.2s;
   height: fit-content;
   position: relative;
-  justify-content: flex-start;
+  justify-content: space-between;
+  overflow: hidden;
+  flex-wrap: wrap;
+}
+article > .body {
+  background-color: #020204db;
+  opacity: 1;
   overflow: hidden;
 }
-article.close {
-  min-width: 50px;
+article.close > .body {
+  opacity: 0;
 }
-article.close .body {
-  margin: 0em;
-  padding: 0em;
+article.close.main > .background {
+  background-size: contain;
+}
+article.main {
   overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.5);
+  min-width: 100%;
+  z-index: 1;
+  padding: 0em 0em;
+  margin: 5em 0em;
+  justify-content: space-between;
+  min-height: 80vh;
+  margin-top: 0em;
 }
-article .body {
+article.main > .background {
+  background-size: cover;
+}
+@media (max-width: 700px) {
+  article.main {
+    min-height: 100vw;
+  }
+  article.main > .body {
+    max-width: -webkit-fill-available;
+    margin: 0px;
+    padding: 0px;
+  }
+}
+article .card {
   display: flex;
+  width: auto;
   flex-direction: column;
   color: white;
-  background-color: #020204db;
   transition: max-height 0.2s, margin 0.2s;
   max-height: fit-content;
   transition: height 0.2s;
   position: relative;
-  max-width: 800px;
-  flex: 1;
-  padding: 1em;
   height: min-content;
+  margin: 1em;
 }
-article .body div {
-  max-height: fit-content;
-  position: relative;
-  transition: height 0.2s;
-}
-article .body div header.title {
-  margin: 0.2em 0em;
-  font-size: 1em;
-}
-article .body div header.title span {
+article .card > .body {
+  margin: 5em;
   margin-left: 0px;
 }
-article .body .note {
-  font-family: "Lucida Console", Monaco, monospace;
+@media (max-width: 700px) {
+  article .card > .body {
+    margin: 1em 0em;
+    margin-top: 20em;
+  }
 }
-article .body .media .body {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  max-width: 100%;
-}
-article .body .media .body > .el {
-  border: darkgrey 1px solid;
-  width: 100%;
-  margin: 0.2em;
-  text-decoration: none;
-}
-article .body .media .body > .el .label {
-  flex: 1;
-  color: white;
-  font-size: 1.2em;
-  display: flex;
-  white-space: nowrap;
-  flex-direction: column;
-  justify-content: center;
-  margin-left: 1em;
-}
-article .body .media .body > .el .label .date {
-  font-size: 0.7em;
-  color: grey;
-}
-article .body .media .body .post {
-  display: inline-flex;
-  flex-wrap: nowrap;
-}
-article .body .media .body .post:hover {
-  background-color: #1a1a1d;
-}
-article .body .media .body .post img {
-  max-width: 100px;
-  height: auto;
-}
-article article > footer {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-article article > footer .body {
+article .grid .card > .body {
   margin: 0px;
+  margin-top: 5em;
+}
+article > .body {
+  display: flex;
+  width: auto;
+  flex-direction: column;
+  color: white;
+  opacity: 1;
+  transition: opacity 0.5s;
+  max-height: fit-content;
+  position: relative;
+  max-width: 800px;
+  padding: 1em;
+  height: min-content;
+  margin: 1em;
+}
+
+article.project > footer > .body {
+  margin: 0px;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  background-color: #181a21;
+  justify-content: flex-end;
+  padding: 1em;
+}
+footer > .body {
+  margin: auto;
+  margin-right: 1em;
   padding: 10px;
   font-size: 0.8em;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: transparent;
+  display: flex;
 }
-article article > footer .body > * {
-  margin: 0px;
-  padding: 0px;
-  border: none;
-}
-article article > footer header.title {
+footer > header.title {
   font-size: 1em;
   color: grey;
 }
-article article > footer header .subtitle {
+footer > header .subtitle {
   text-decoration: none;
   color: darkgrey;
   display: block;
   margin-left: 1em;
 }
-article article > footer header .subtitle .date {
+footer > header .subtitle .date {
   font-family: "Lucida Console", Monaco, monospace;
 }
-article .taglist > .taglist {
-  background-color: darkgrey;
-  width: auto;
+
+article.card > .body {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  padding: 0.2em;
-  margin: 0.5em auto;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-between;
+  transform-origin: bottom;
+  transition: opacity 0.3s;
 }
-article .taglist .word {
-  display: block;
-  margin: 0.2em;
-  background-color: black;
+article.card > footer {
   color: white;
-  font-weight: 800;
-  padding: 0.1em;
+  flex-direction: column;
+  padding: 0px;
 }
-article footer .taglist > .taglist {
-  margin: 0.2em 1em;
+article.card > footer > .body {
+  margin: 0.2em;
+  flex-direction: row;
+  display: flex;
+  justify-content: space-between;
 }
-article.card, article.main {
-  overflow: hidden;
-  background-color: rgba(0, 0, 0, 0.5);
-  min-width: 100%;
-  z-index: 1;
-  padding: 5em 0em;
-  margin: 5em 0em;
+
+.card > footer {
+  background-color: #383d4d;
 }
-article.card:nth-of-type(2n + 1), article.main:nth-of-type(2n + 1) {
-  flex-direction: row-reverse;
+
+.el.list.grid .card > .body {
+  margin: 0px;
+  padding: 0px;
+  opacity: 0;
+  transition: opacity 0.2s;
+  max-width: 100%;
 }
-article.main {
-  min-height: 80vh;
-  flex-direction: row !important;
-  margin-top: 1em;
+.el.list.grid .card:hover > .body {
+  opacity: 1;
 }
-article .background {
-  position: absolute;
-  display: block;
-  flex: 1;
-  background-position: center;
+.el.list .card {
+  opacity: 1;
+  min-height: 50vh;
+  margin-bottom: 0px;
+  margin-top: auto;
+}
+.el.list .card > .body {
+  margin: 1em;
+  max-width: 600px;
+}
+@media (max-width: 800px) {
+  .el.list .card > .body {
+    max-width: -webkit-fill-available;
+    margin: auto;
+    margin-bottom: 0px;
+    opacity: 0;
+  }
+}
+.el.list .card:hover > .body {
+  opacity: 1;
 }
 
 /*# sourceMappingURL=article.css.map */

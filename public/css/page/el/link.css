@@ -1,0 +1,19 @@
+.el.link {
+  display: flex;
+  flex-direction: row;
+}
+.el.link > .body {
+  font-size: 1.2em;
+  text-decoration: none;
+  color: white;
+  display: flex;
+  position: relative;
+}
+.el.link > .body:hover {
+  color: #7d7878;
+}
+.el.link > .body i {
+  margin: 0em 1em;
+}
+
+/*# sourceMappingURL=link.css.map */

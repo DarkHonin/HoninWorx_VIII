@@ -2,28 +2,31 @@ extends ../template.pug
 
 block content
     - var title = 'Test Project'
-    - var tags = ['these', 'are', 'supposed', 'to', 'be', 'tags']
-    - var note = 'Some text here describing the project, character limit is debateable but will see'
     - var postImageUrl = '../../img/latest.jpg'
     .page
         article.main
+            header.title
+                span Welcome!
             .body
-                header.title
-                    span Welcome!
-                .note
-                    p.body this is Honinworx, portfolio project/s of a web developer/artist and soon to be more
-                footer
-                    .meta
-                        .body
-                            header.title
-                                span Other Links
-                                span.subtitle Platforms
+                .el.note
+                    p.body Honinworx is the portfolio project/s of a web developer/artist.
+                        
+                                
             .post.background(style=`background-image: URL("${postImageUrl}")`)
     .page
         header.title
             span Recently updated
-        include ../elements/project/project_card
-        include ../elements/project/project_card
-        include ../elements/project/project_card
+        .body
+            .el.list.grid
+                .body
+                    include ../cards/project
+                    include ../cards/project
+                    include ../cards/project
+                footer
+                    .body
+                        a.el.loadmore(title='View More', href='./projects.html')
+                            .body
+                                i.fas.fa-eye
 
 
+    include ./about

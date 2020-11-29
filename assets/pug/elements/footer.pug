@@ -1,15 +1,22 @@
 footer
     .body
-        .sitemap
+        .sitemap.el
             header.title
                 span Sitemap
             .body
                 a(href='./index.html') Honinworx
                 a(href='./projects.html') Projects
                 a(href='./about.html') About
-        .contact
+        .contact.el
             header.title
                 span Contact
             .body
-                span email@address.com
-                    
+                .contact
+                    span.label Email
+                    .space
+                    a.subtitle(href='mailto:email@address.com') email@address.com
+                .contact
+                    span.label Telegram
+                    .space
+                    a.subtitle(href='https://t.me/HoninWorx') @NoodleStudios
+        include ./social

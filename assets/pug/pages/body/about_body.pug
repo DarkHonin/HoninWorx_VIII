@@ -1,0 +1,24 @@
+extends ../../cards/card.pug
+
+block vars
+    - var articleHeading = 'About'
+    - var note = 'Some text here describing the project, character limit is debateable but will see'
+    - var backgroundImage = '../../img/latest.jpg'
+    - var cardClass = ''
+    - var isMain = true
+
+block body
+    .el.note
+        header.title What is this?
+        .body 
+            .logo
+                img(src='../../img/logo.jpg' height='75px' width='75px' style='border-radius: 100%')
+            p HoninWorx is a website intended as hosting platform for my own little art gallery. 
+            p I needed something that both demonstrated what I have learned during my studies, 
+                <b> and </b> a platform to serve future endevors :3
+        header.title Who made this?
+        .body
+            p I go by the alias 'Honin'. As a stranger, strangeness is a goal.
+            p In the future I hope to sell art prints here
+
+    

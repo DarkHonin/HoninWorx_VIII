@@ -1,18 +1,21 @@
-article>footer
+footer
     display: flex
-    flex-direction: row
-    justify-content: space-between
-
-    .body
-        margin: 0px
+    flex-direction: column
+    
+    background-color: #181a21
+    justify-content: flex-end
+    padding: 1em
+    &>.body
+        margin: auto
+        margin-right: 1em
         padding: 10px
         font-size: .8em
-        &>*
-            margin: 0px
-            padding: 0px
-            border: none
+        flex-direction: row
+        justify-content: space-between
+        background-color: transparent
+        display: flex
 
-    header
+    &>header
         &.title
             font-size: 1em
             color: grey
@@ -23,3 +26,4 @@ article>footer
             margin-left: 1em
             .date
                 font-family: "Lucida Console", Monaco, monospace
+   

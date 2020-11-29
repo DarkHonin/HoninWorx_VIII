@@ -1,0 +1,54 @@
+article.card
+    // &>header.title
+    &>.body
+        display: flex
+        flex-direction: column
+        align-items: stretch
+        justify-content: space-between
+        transform-origin: bottom
+        transition: opacity .3s
+    &>footer
+        color: white
+        flex-direction: column
+        padding: 0px
+        &>.body
+            margin: .2em
+            flex-direction: row
+            display: flex
+            justify-content: space-between
+
+.card
+    
+    
+    
+    &>footer
+        background-color: #383d4d
+
+.el.list
+    &.grid
+        .card
+            &>.body
+                margin: 0px
+                padding: 0px
+                opacity: 0
+                transition: opacity .2s
+                max-width: 100%
+            &:hover
+                &>.body
+                    opacity: 1
+    .card
+        opacity: 1
+        min-height: 50vh
+        margin-bottom: 0px
+        margin-top: auto
+        &>.body
+            margin: 1em 
+            max-width: 600px
+            @media ( max-width: 800px )
+                max-width: -webkit-fill-available
+                margin: auto
+                margin-bottom: 0px
+                opacity: 0
+        &:hover>.body
+            opacity: 1
+            

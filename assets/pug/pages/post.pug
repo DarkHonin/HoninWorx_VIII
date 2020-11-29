@@ -6,32 +6,62 @@ block content
     - var tags = ['these', 'are', 'supposed', 'to', 'be', 'tags']
     - var note = 'Some text here describing the project, character limit is debateable but will see'
     - var postImageUrl = '../../img/post.jpg'
-    article.main
-        .body            
-            header.title 
+    article.main#post
+        header.title
+            .body
                 span Post
                 a(href='./project.html').subtitle __/projectName
                 span(style='text-decoration: none') :
                 span.subtitle __/postName
-            .note
+            .el.link
+                a.body(href='#' title='Hide Body' onclick='document.querySelector("#post").classList.toggle("close")')
+                    i.fas.fa-eye
+        .body            
+            .el.note
                 header.title
                     span Note
                 p.body=note
-            .media
+            .el.media.list
                 header.title
                     span Media
                 .body
-                    a(href=postImageUrl).post.el
-                        img(src=postImageUrl)
-                        .label
-                            span='Image name'
-                            span.date '10:40 AM 11/22/2020'
+                    .el.img.card.close#post_1
+                        img.body(src='../../img/latest.jpg')
+                        footer
+                            .body
+                                .el.meta
+                                    .body
+                                        span.name(data-title='File Name')
+                                            span.body latest.jpg
+                                        span.date(data-title='Posted')
+                                            span.body 10:40 AM 11/19/2020
+                                        span.ext
+                                            span.body .jpg
+                                        span.size
+                                            span.body 157kb
+                                .el.link(onClick='document.querySelector("#post_1").classList.toggle("close")')
+                                    a.body(href='#')
+                                        i.fas.fa-eye
+                    .el.img.card#post_2
+                        img.body(src=postImageUrl)
+                        footer
+                            .body
+                                .el.meta
+                                    .body
+                                        span.name(data-title='File Name')
+                                            span.body post.jpg
+                                        span.date(data-title='Posted')
+                                            span.body 10:40 AM 11/19/2020
+                                        span.ext
+                                            span.body .jpg
+                                        span.size
+                                            span.body 157kb
+                                .el.link(onClick='document.querySelector("#post_2").classList.toggle("close")')
+                                    a.body(href='#')
+                                        i.fas.fa-eye
+            
             footer
-                .meta
-                    header.title
-                        span Meta
-                    .body
-                        span.subtitle Created: 
-                            span.date 10:40 AM 11/19/2020
+                .body
+                    
 
-        .post.background(style=`background-image: URL("${postImageUrl}")`)
+        .background.fixed(style=`background-image: URL("${postImageUrl}")`)

@@ -1,29 +1,31 @@
-article > footer {
+footer {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
+  background-color: #181a21;
+  justify-content: flex-end;
+  padding: 1em;
 }
-article > footer .body {
-  margin: 0px;
+footer > .body {
+  margin: auto;
+  margin-right: 1em;
   padding: 10px;
   font-size: 0.8em;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: transparent;
+  display: flex;
 }
-article > footer .body > * {
-  margin: 0px;
-  padding: 0px;
-  border: none;
-}
-article > footer header.title {
+footer > header.title {
   font-size: 1em;
   color: grey;
 }
-article > footer header .subtitle {
+footer > header .subtitle {
   text-decoration: none;
   color: darkgrey;
   display: block;
   margin-left: 1em;
 }
-article > footer header .subtitle .date {
+footer > header .subtitle .date {
   font-family: "Lucida Console", Monaco, monospace;
 }
 

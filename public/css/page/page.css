@@ -2,219 +2,219 @@ article, header {
   box-shadow: 0px 0px 10px -5px black;
 }
 
-.page {
-  min-width: 100%;
-  background-color: #0a0a0c;
-}
-.page .background {
-  background-color: blue;
-  top: 0px;
-  bottom: 0px;
-  width: 100%;
-  height: 100%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  z-index: -1;
-  transition: filter 0.5s;
-  filter: blur(0px);
-}
-.page .card .background:hover {
-  filter: blur(5px);
-}
-.page article {
+article {
   z-index: 1;
   margin-top: 1em;
   display: flex;
-  flex-direction: row;
-  min-width: 400px;
-  max-width: 700px;
+  flex-direction: column;
   transition: min-width 0.2s;
   height: fit-content;
   position: relative;
-  justify-content: flex-start;
-  overflow: hidden;
-}
-.page article.close {
-  min-width: 50px;
-}
-.page article.close .body {
-  margin: 0em;
-  padding: 0em;
-  overflow: hidden;
-}
-.page article .body {
-  display: flex;
-  flex-direction: column;
-  color: white;
-  background-color: #020204db;
-  transition: max-height 0.2s, margin 0.2s;
-  max-height: fit-content;
-  transition: height 0.2s;
-  position: relative;
-  max-width: 800px;
-  flex: 1;
-  padding: 1em;
-  height: min-content;
-}
-.page article .body div {
-  max-height: fit-content;
-  position: relative;
-  transition: height 0.2s;
-}
-.page article .body div header.title {
-  margin: 0.2em 0em;
-  font-size: 1em;
-}
-.page article .body div header.title span {
-  margin-left: 0px;
-}
-.page article .body .note {
-  font-family: "Lucida Console", Monaco, monospace;
-}
-.page article .body .media .body {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  max-width: 100%;
-}
-.page article .body .media .body > .el {
-  border: darkgrey 1px solid;
-  width: 100%;
-  margin: 0.2em;
-  text-decoration: none;
-}
-.page article .body .media .body > .el .label {
-  flex: 1;
-  color: white;
-  font-size: 1.2em;
-  display: flex;
-  white-space: nowrap;
-  flex-direction: column;
-  justify-content: center;
-  margin-left: 1em;
-}
-.page article .body .media .body > .el .label .date {
-  font-size: 0.7em;
-  color: grey;
-}
-.page article .body .media .body .post {
-  display: inline-flex;
-  flex-wrap: nowrap;
-}
-.page article .body .media .body .post:hover {
-  background-color: #1a1a1d;
-}
-.page article .body .media .body .post img {
-  max-width: 100px;
-  height: auto;
-}
-.page article article > footer {
-  display: flex;
-  flex-direction: row;
   justify-content: space-between;
-}
-.page article article > footer .body {
-  margin: 0px;
-  padding: 10px;
-  font-size: 0.8em;
-}
-.page article article > footer .body > * {
-  margin: 0px;
-  padding: 0px;
-  border: none;
-}
-.page article article > footer header.title {
-  font-size: 1em;
-  color: grey;
-}
-.page article article > footer header .subtitle {
-  text-decoration: none;
-  color: darkgrey;
-  display: block;
-  margin-left: 1em;
-}
-.page article article > footer header .subtitle .date {
-  font-family: "Lucida Console", Monaco, monospace;
-}
-.page article .taglist > .taglist {
-  background-color: darkgrey;
-  width: auto;
-  display: flex;
-  flex-direction: row;
+  overflow: hidden;
   flex-wrap: wrap;
-  align-items: flex-start;
-  padding: 0.2em;
-  margin: 0.5em auto;
 }
-.page article .taglist .word {
-  display: block;
-  margin: 0.2em;
-  background-color: black;
-  color: white;
-  font-weight: 800;
-  padding: 0.1em;
+article > .body {
+  background-color: #020204db;
+  opacity: 1;
+  overflow: hidden;
 }
-.page article footer .taglist > .taglist {
-  margin: 0.2em 1em;
+article.close > .body {
+  opacity: 0;
 }
-.page article.card, .page article.main {
+article.close.main > .background {
+  background-size: contain;
+}
+article.main {
   overflow: hidden;
   background-color: rgba(0, 0, 0, 0.5);
   min-width: 100%;
   z-index: 1;
-  padding: 5em 0em;
+  padding: 0em 0em;
   margin: 5em 0em;
-}
-.page article.card:nth-of-type(2n + 1), .page article.main:nth-of-type(2n + 1) {
-  flex-direction: row-reverse;
-}
-.page article.main {
-  min-height: 80vh;
-  flex-direction: row !important;
-  margin-top: 1em;
-}
-.page article .background {
-  position: absolute;
-  display: block;
-  flex: 1;
-  background-position: center;
-}
-.page > .title {
-  border-bottom: 3px solid grey;
-}
-.page footer {
-  display: flex;
-  flex-direction: row;
   justify-content: space-between;
+  min-height: 80vh;
+  margin-top: 0em;
 }
-.page footer .body {
+article.main > .background {
+  background-size: cover;
+}
+@media (max-width: 700px) {
+  article.main {
+    min-height: 100vw;
+  }
+  article.main > .body {
+    max-width: -webkit-fill-available;
+    margin: 0px;
+    padding: 0px;
+  }
+}
+article .card {
+  display: flex;
+  width: auto;
+  flex-direction: column;
+  color: white;
+  transition: max-height 0.2s, margin 0.2s;
+  max-height: fit-content;
+  transition: height 0.2s;
+  position: relative;
+  height: min-content;
+  margin: 1em;
+}
+article .card > .body {
+  margin: 5em;
+  margin-left: 0px;
+}
+@media (max-width: 700px) {
+  article .card > .body {
+    margin: 1em 0em;
+    margin-top: 20em;
+  }
+}
+article .grid .card > .body {
   margin: 0px;
+  margin-top: 5em;
+}
+article > .body {
+  display: flex;
+  width: auto;
+  flex-direction: column;
+  color: white;
+  opacity: 1;
+  transition: opacity 0.5s;
+  max-height: fit-content;
+  position: relative;
+  max-width: 800px;
+  padding: 1em;
+  height: min-content;
+  margin: 1em;
+}
+
+article.project > footer > .body {
+  margin: 0px;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  background-color: #181a21;
+  justify-content: flex-end;
+  padding: 1em;
+}
+footer > .body {
+  margin: auto;
+  margin-right: 1em;
   padding: 10px;
   font-size: 0.8em;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: transparent;
+  display: flex;
 }
-.page footer .body > * {
-  margin: 0px;
-  padding: 0px;
-  border: none;
-}
-.page footer header.title {
+footer > header.title {
   font-size: 1em;
   color: grey;
 }
-.page footer header .subtitle {
+footer > header .subtitle {
   text-decoration: none;
   color: darkgrey;
   display: block;
   margin-left: 1em;
 }
-.page footer .date {
+footer > header .subtitle .date {
+  font-family: "Lucida Console", Monaco, monospace;
+}
+
+article.card > .body {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-between;
+  transform-origin: bottom;
+  transition: opacity 0.3s;
+}
+article.card > footer {
+  color: white;
+  flex-direction: column;
+  padding: 0px;
+}
+article.card > footer > .body {
+  margin: 0.2em;
+  flex-direction: row;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card > footer {
+  background-color: #383d4d;
+}
+
+.el.list.grid .card > .body {
+  margin: 0px;
+  padding: 0px;
+  opacity: 0;
+  transition: opacity 0.2s;
+  max-width: 100%;
+}
+.el.list.grid .card:hover > .body {
+  opacity: 1;
+}
+.el.list .card {
+  opacity: 1;
+  min-height: 50vh;
+  margin-bottom: 0px;
+  margin-top: auto;
+}
+.el.list .card > .body {
+  margin: 1em;
+  max-width: 600px;
+}
+@media (max-width: 800px) {
+  .el.list .card > .body {
+    max-width: -webkit-fill-available;
+    margin: auto;
+    margin-bottom: 0px;
+    opacity: 0;
+  }
+}
+.el.list .card:hover > .body {
+  opacity: 1;
+}
+
+.page {
+  min-width: 100%;
+  background-color: #0a0a0c;
+}
+.page > .body {
+  margin: 5em 0px;
+}
+.page > .article.card:nth-of-type(2n + 1) > .body {
+  align-self: flex-end;
+  margin-right: 1em;
+}
+.page > .article.card:nth-of-type(2n + 1) > header.title {
+  text-align: right;
+}
+.page > .title {
+  border-bottom: 3px solid grey;
+}
+.page > .title header.title {
+  font-size: 1em;
+  color: grey;
+}
+.page > .title header .subtitle {
+  text-decoration: none;
+  color: darkgrey;
+  display: block;
+  margin-left: 1em;
+}
+.page > .title .date {
   font-family: "Lucida Console", Monaco, monospace;
 }
 
 body.page {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-between;
 }
@@ -292,35 +292,58 @@ body.page .page.head header .title {
   font-size: 3em;
 }
 
+.page > footer > .body {
+  width: auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin: 0px;
+  padding: 10px;
+}
+
 body.page > footer {
   border-top: 3px solid grey;
   background-color: #181a21;
-  width: 100%;
-  min-height: 300px;
+  min-height: 100px;
   padding: 1em;
 }
-body.page > footer .body {
-  width: 100%;
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-evenly;
+
+* {
+  order: 1;
 }
-body.page > footer .body .sitemap a {
-  text-decoration: none;
-  color: grey;
-}
-body.page > footer .body .sitemap .body {
-  display: flex;
-  flex-direction: column;
-  margin: 0.2em 1em;
-}
-body.page > footer .body .sitemap .body a {
-  margin: 0.2em 0em;
+
+.background {
+  background-color: black;
+  top: 0px;
+  bottom: 0px;
+  width: 100vw;
+  height: 100vw;
+  max-width: 100%;
+  max-height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-origin: center;
+  z-index: -1;
+  position: absolute;
   display: block;
-  border-bottom: 1px grey solid;
+  flex: 1;
+  transition: background-size 0.5s;
 }
-body.page > footer .body .sitemap .body a:hover {
-  border-bottom: 1px lightgrey solid;
+.background.after {
+  position: relative;
+  min-height: 50vw;
+  background-position: top right;
+}
+@media (min-width: 900px) {
+  .background.after {
+    background-position: center bottom;
+    min-height: 100%;
+    position: absolute;
+  }
+}
+.background.fixed {
+  position: fixed;
 }
 
 /*# sourceMappingURL=page.css.map */

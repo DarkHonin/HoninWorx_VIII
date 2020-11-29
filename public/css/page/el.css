@@ -1,0 +1,221 @@
+.el {
+  max-width: -webkit-fill-available;
+  margin: 0.5em 0em;
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: stretch;
+  color: white;
+}
+.el > header.title {
+  font-size: 1.5em;
+}
+.el > .body {
+  margin: 0px;
+  padding: 0px;
+  display: flex;
+}
+@media (max-width: 700px) {
+  .el > .body {
+    max-width: -webkit-fill-available;
+    margin: 0px;
+  }
+}
+.el.social .icon {
+  display: flex;
+  position: relative;
+  font-size: 2em;
+  text-decoration: none;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  transition: filter 0.2s;
+}
+.el.social .icon:hover {
+  filter: opacity(0.5);
+}
+.el.social .icon.telegram {
+  color: #2CA5E0;
+}
+.el.social .icon.twitter {
+  color: #1DA1F2;
+}
+.el.social .icon.youtube {
+  color: #FF0000;
+}
+
+.el.media > .body > .el {
+  border: black 2px solid;
+}
+.el.media > .body > .img {
+  background-color: black;
+  margin: 0px;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.el.media > .body > .img > .body {
+  margin: auto;
+  max-width: 100%;
+  transition: max-width 0.2s;
+}
+.el.media > .body > .img.close {
+  max-height: min-content;
+  min-height: 0px;
+}
+.el.media > .body > .img.close > .body {
+  width: auto;
+  margin: 0px;
+  max-width: 200px;
+  opacity: 1;
+}
+.el.media > .body > .img > footer {
+  padding: 0em;
+  width: fit-content;
+  min-width: 50%;
+  flex: 1;
+}
+.el.media > .body > .img > footer > .body {
+  flex-direction: row;
+  justify-content: space-between;
+  width: -webkit-fill-available;
+}
+
+.el.meta > .body {
+  margin: 0px;
+  flex-direction: column;
+}
+.el.meta > .body > .date::before {
+  content: "Date:";
+}
+.el.meta > .body > .ext::before {
+  content: "Extention:";
+}
+.el.meta > .body > .size::before {
+  content: "Size:";
+}
+.el.meta > .body > .name::before {
+  content: "Name:";
+}
+.el.meta > .body > [data-title]::before {
+  content: attr(data-title);
+}
+.el.meta > .body > span {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: grey;
+  margin: 0.2em 0em;
+}
+.el.meta > .body > span::before {
+  margin: auto 1em;
+}
+.el.meta > .body > span > .body {
+  display: inline-block;
+  margin: auto 1em;
+  color: white;
+}
+
+.el.link {
+  display: flex;
+  flex-direction: row;
+}
+.el.link > .body {
+  font-size: 1.2em;
+  text-decoration: none;
+  color: white;
+  display: flex;
+  position: relative;
+}
+.el.link > .body:hover {
+  color: #7d7878;
+}
+.el.link > .body i {
+  margin: 0em 1em;
+}
+
+.note .logo {
+  float: left;
+  margin: 1em;
+}
+.note > .body {
+  font-family: "Lucida Console", Monaco, monospace;
+  background-color: black;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  display: block;
+  padding: 1em;
+}
+.note header.title {
+  font-size: 1.5em;
+}
+
+.grid .card .note > .body {
+  max-height: 100px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.el.list > footer > .body {
+  min-height: 20px;
+  position: relative;
+  width: -webkit-fill-available;
+}
+.el.list > .body {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  height: auto;
+  width: -webkit-fill-available;
+}
+.el.list.grid > .body {
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  margin-bottom: 0px;
+  padding-bottom: 0.2em;
+  margin-right: 0px;
+}
+.el.list.grid > .body .card {
+  max-width: 350px;
+}
+@media (max-width: 800px) {
+  .el.list.grid > .body .card {
+    max-width: -webkit-fill-available;
+  }
+}
+.el.list > header.title {
+  font-size: 2em;
+}
+.el.list > header.title.close + .body {
+  max-height: intial;
+}
+
+.el.loadmore {
+  background-color: #787890;
+  padding: 1em;
+  font-size: 2em;
+  min-width: 30px;
+  max-width: 30px;
+  max-height: 30px;
+  border-radius: 100%;
+  position: absolute;
+  top: calc(100% - 30px);
+  right: calc(50% - 30px);
+  z-index: 99;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.2s;
+  text-decoration: none;
+}
+.el.loadmore:hover {
+  background-color: #40404b;
+}
+
+/*# sourceMappingURL=el.css.map */
