@@ -1,6 +1,5 @@
 extends ../template.pug
 
-
 block content
     - var title = 'Test Project'
     - var tags = ['these', 'are', 'supposed', 'to', 'be', 'tags']
@@ -14,7 +13,7 @@ block content
                 span(style='text-decoration: none') :
                 span.subtitle __/postName
             .el.link
-                a.body(href='#' title='Hide Body' onclick='document.querySelector("#post").classList.toggle("close")')
+                a.body.notitle(href='#' title='Hide Body' onclick='document.querySelector("#post").classList.toggle("close")')
                     i.fas.fa-eye
         .body            
             .el.note

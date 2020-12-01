@@ -10,7 +10,7 @@
 .el.media > .body > .img > .body {
   margin: auto;
   max-width: 100%;
-  transition: max-width 0.2s;
+  transition: max-width 0.5s;
 }
 .el.media > .body > .img.close {
   max-height: min-content;
@@ -25,7 +25,7 @@
 .el.media > .body > .img > footer {
   padding: 0em;
   width: fit-content;
-  min-width: 50%;
+  min-width: 25%;
   flex: 1;
 }
 .el.media > .body > .img > footer > .body {

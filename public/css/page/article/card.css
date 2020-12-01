@@ -16,6 +16,7 @@ article.card > footer > .body {
   flex-direction: row;
   display: flex;
   justify-content: space-between;
+  position: relative;
 }
 
 .card > footer {
@@ -24,6 +25,8 @@ article.card > footer > .body {
 
 .el.list.grid .card > .body {
   margin: 0px;
+  margin-top: auto;
+  margin-bottom: 0px;
   padding: 0px;
   opacity: 0;
   transition: opacity 0.2s;

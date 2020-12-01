@@ -23,6 +23,7 @@
   justify-content: space-between;
   color: grey;
   margin: 0.2em 0em;
+  white-space: nowrap;
 }
 .el.meta > .body > span::before {
   margin: auto 1em;

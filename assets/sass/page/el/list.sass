@@ -18,6 +18,7 @@
     &.grid
         // border: 2px solid blue
         &>.body
+            
             flex-direction: row
             flex-wrap: wrap
             justify-content: space-evenly
@@ -25,8 +26,12 @@
             margin-bottom: 0px
             padding-bottom: .2em
             margin-right: 0px
+            margin-bottom: 1em
             .card
-                max-width: 350px
+                width: -webkit-fill-available
+                flex: 1
+                min-width: 400px
+                margin: .5em
                 @media ( max-width: 800px )
                     max-width: -webkit-fill-available
             

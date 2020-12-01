@@ -33,12 +33,13 @@ article
         justify-content: space-between
         min-height: 80vh
         margin-top: 0em
-
+        &>header.title
+            justify-content: space-between
         &>.background
             background-size: cover
 
 
-        @media ( max-width: 700px )
+        @media ( max-width: 800px )
             min-height: 100vw
             &>.body
                 max-width: -webkit-fill-available

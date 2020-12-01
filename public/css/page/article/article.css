@@ -32,10 +32,13 @@ article.main {
   min-height: 80vh;
   margin-top: 0em;
 }
+article.main > header.title {
+  justify-content: space-between;
+}
 article.main > .background {
   background-size: cover;
 }
-@media (max-width: 700px) {
+@media (max-width: 800px) {
   article.main {
     min-height: 100vw;
   }
@@ -93,6 +96,7 @@ article.project > footer > .body {
 footer {
   display: flex;
   flex-direction: column;
+  position: relative;
   background-color: #181a21;
   justify-content: flex-end;
   padding: 1em;
@@ -139,6 +143,7 @@ article.card > footer > .body {
   flex-direction: row;
   display: flex;
   justify-content: space-between;
+  position: relative;
 }
 
 .card > footer {
@@ -147,6 +152,8 @@ article.card > footer > .body {
 
 .el.list.grid .card > .body {
   margin: 0px;
+  margin-top: auto;
+  margin-bottom: 0px;
   padding: 0px;
   opacity: 0;
   transition: opacity 0.2s;

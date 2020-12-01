@@ -57,7 +57,7 @@
 .el.media > .body > .img > .body {
   margin: auto;
   max-width: 100%;
-  transition: max-width 0.2s;
+  transition: max-width 0.5s;
 }
 .el.media > .body > .img.close {
   max-height: min-content;
@@ -72,7 +72,7 @@
 .el.media > .body > .img > footer {
   padding: 0em;
   width: fit-content;
-  min-width: 50%;
+  min-width: 25%;
   flex: 1;
 }
 .el.media > .body > .img > footer > .body {
@@ -106,6 +106,7 @@
   justify-content: space-between;
   color: grey;
   margin: 0.2em 0em;
+  white-space: nowrap;
 }
 .el.meta > .body > span::before {
   margin: auto 1em;
@@ -119,19 +120,43 @@
 .el.link {
   display: flex;
   flex-direction: row;
+  height: -webkit-fill-available;
 }
 .el.link > .body {
   font-size: 1.2em;
   text-decoration: none;
   color: white;
   display: flex;
-  position: relative;
+  white-space: nowrap;
+}
+.el.link > .body > span {
+  font-size: 0.5em;
+  margin: auto 0.8em;
+  padding: 0px !important;
 }
 .el.link > .body:hover {
   color: #7d7878;
 }
 .el.link > .body i {
   margin: 0em 1em;
+}
+.el.link > .body[title]::after {
+  content: attr(title);
+  display: block;
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.2s;
+  overflow: hidden;
+  pointer-events: none;
+  bottom: 100%;
+  left: 0px;
+  padding: 0.2em;
+}
+.el.link > .body:hover[title]::after {
+  opacity: 1;
+}
+.el.link > .body.notitle::after {
+  content: none;
 }
 
 .note .logo {
@@ -180,9 +205,13 @@
   margin-bottom: 0px;
   padding-bottom: 0.2em;
   margin-right: 0px;
+  margin-bottom: 1em;
 }
 .el.list.grid > .body .card {
-  max-width: 350px;
+  width: -webkit-fill-available;
+  flex: 1;
+  min-width: 400px;
+  margin: 0.5em;
 }
 @media (max-width: 800px) {
   .el.list.grid > .body .card {
@@ -196,6 +225,14 @@
   max-height: intial;
 }
 
+@-webkit-keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 .el.loadmore {
   background-color: #787890;
   padding: 1em;
@@ -216,6 +253,10 @@
 }
 .el.loadmore:hover {
   background-color: #40404b;
+}
+.el.loadmore.loading > .body {
+  transform-origin: center;
+  animation: rotate 2s steps(8) infinite;
 }
 
 /*# sourceMappingURL=el.css.map */

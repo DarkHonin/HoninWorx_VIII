@@ -1,3 +1,11 @@
+@-webkit-keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 .el.loadmore {
   background-color: #787890;
   padding: 1em;
@@ -18,6 +26,10 @@
 }
 .el.loadmore:hover {
   background-color: #40404b;
+}
+.el.loadmore.loading > .body {
+  transform-origin: center;
+  animation: rotate 2s steps(8) infinite;
 }
 
 /*# sourceMappingURL=loadmore.css.map */

@@ -12,15 +12,17 @@ block body
             span Note
         p.body=note
 block footer
-    .el.meta
-        .body
-            span.date(data-title='Updated')
-                span.body 10:40 AM 11/19/2020
     .el.link
-        a.body(href='./project.html', title=`View project${articleHeading}`)
+        a.body(href='./project.html', title=`View`)
             i.fas.fa-eye
-        span.body(title='Projects: 33')
+        span.body(title='Created: 10:40 AM 11/19/2020')
+            <i class="fas fa-calendar-day"></i>
+        span.body(title='Updated: 10:40 AM 11/19/2020')
+            i.fas.fa-clock
+        span.body(title='Posts: 33')
             i.fas.fa-book
+        span.body(title='Age: 12d13h')
+            i.fas.fa-hourglass-start
     //- .el.taglist
     //-     .taglist
     //-         for tag, k in tags

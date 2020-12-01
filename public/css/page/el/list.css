@@ -18,9 +18,13 @@
   margin-bottom: 0px;
   padding-bottom: 0.2em;
   margin-right: 0px;
+  margin-bottom: 1em;
 }
 .el.list.grid > .body .card {
-  max-width: 350px;
+  width: -webkit-fill-available;
+  flex: 1;
+  min-width: 400px;
+  margin: 0.5em;
 }
 @media (max-width: 800px) {
   .el.list.grid > .body .card {

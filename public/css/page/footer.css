@@ -12,6 +12,19 @@ body.page > footer {
   background-color: #181a21;
   min-height: 100px;
   padding: 1em;
+  padding-bottom: 0px;
+  justify-content: space-between;
+}
+body.page > footer > footer {
+  padding: 0.5px;
+  margin: 0px;
+}
+body.page > footer > footer > .body {
+  width: -webkit-fill-available;
+  flex-direction: row;
+}
+body.page > footer > footer > .body > .el {
+  color: grey;
 }
 
 /*# sourceMappingURL=footer.css.map */

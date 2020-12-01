@@ -1,3 +1,10 @@
+@-webkit-keyframes rotate
+    0%
+        transform: rotate(0deg)
+    100%
+        transform: rotate(360deg)
+        
+
 .el.loadmore
     background-color: rgba(120, 120, 144, 1)
     padding: 1em
@@ -17,3 +24,7 @@
     text-decoration: none
     &:hover
         background-color: #40404b
+    &.loading
+        &>.body
+            transform-origin: center
+            animation: rotate 2s steps(8) infinite

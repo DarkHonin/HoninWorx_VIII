@@ -1,13 +1,37 @@
 .el.link
     display: flex
     flex-direction: row
+    
+    height: -webkit-fill-available
     &>.body
         font-size: 1.2em
         text-decoration: none
         color: white
         display: flex
-        position: relative
+        white-space: nowrap
+        &>span
+            font-size: .5em
+            margin: auto 0.8em
+            padding: 0px !important
         &:hover
             color: rgba(125, 120, 120, 1)
         i
             margin: 0em 1em
+        &[title]::after
+            content: attr(title)
+            display: block
+            position: absolute
+            opacity: 0
+            transition: opacity .2s
+            overflow: hidden
+            pointer-events: none
+            bottom: 100%
+            left: 0px
+            padding: .2em
+        &:hover
+            &[title]::after
+                opacity: 1
+                // transform: scaleX(1)
+        &.notitle
+            &::after
+                content: none
