@@ -4,9 +4,10 @@ html(lang="en")
         meta(charset="UTF-8")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         include common/css.pug
+        include common/meta.pug
         title HoninWorx
         
     body.page
-        include elements/header/header.pug
+        include ./el/header.pug
         block content
-        include elements/footer.pug
+        include ./el/footer.pug

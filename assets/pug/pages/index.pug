@@ -36,16 +36,5 @@ block content
                 span About
 
             .body
-                .el.note
-                    header.title What is this?
-                    .body 
-                        .logo
-                            img(src='../../img/logo.jpg' height='75px' width='75px' style='border-radius: 100%')
-                        p HoninWorx is a website intended as hosting platform for my own little art gallery. 
-                        p I needed something that both demonstrated what I have learned during my studies, 
-                            <b> and </b> a platform to serve future endevors :3
-                    header.title Who made this?
-                    .body
-                        p I go by the alias 'Honin'. As a stranger, strangeness is a goal.
-                        p In the future I hope to sell art prints here
+                include ../body/about
             .background.after(style=`background-image: URL("${postImageUrl}")`)
