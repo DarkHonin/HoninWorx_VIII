@@ -1,10 +1,17 @@
 extends ../template.pug
 
-block content
+
+
+
+block meta
     - var title = 'Test Project'
     - var tags = ['these', 'are', 'supposed', 'to', 'be', 'tags']
     - var note = 'Some text here describing the project, character limit is debateable but will see'
     - var postImageUrl = '../../img/post.jpg'
+    meta(name="description", content=note)
+    title=title + '@HoninWorx'
+
+block content
     article.main#post
         header.title
             .body

@@ -1,5 +1,114 @@
-article, header {
-  box-shadow: 0px 0px 10px -5px black;
+.page {
+  min-width: 100%;
+  background-color: #0a0a0c;
+}
+.page > .body {
+  margin: 5em 0px;
+  margin-top: 1em;
+}
+.page > .article.card:nth-of-type(2n + 1) > .body {
+  align-self: flex-end;
+  margin-right: 1em;
+}
+.page > .article.card:nth-of-type(2n + 1) > header.title {
+  text-align: right;
+}
+.page > .title {
+  border-bottom: 3px solid grey;
+}
+.page > .title header.title {
+  font-size: 1em;
+  color: grey;
+}
+.page > .title header .subtitle {
+  text-decoration: none;
+  color: darkgrey;
+  display: block;
+  margin-left: 1em;
+}
+.page > .title .date {
+  font-family: "Lucida Console", Monaco, monospace;
+}
+
+body.page {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  overflow-x: hidden;
+  justify-content: space-between;
+}
+body.page header {
+  background-color: #141417;
+  padding: 0.5em;
+  margin-top: 0px;
+  z-index: 1;
+  color: lightgrey;
+  width: available;
+  width: -webkit-fill-available;
+  display: flex;
+  justify-content: flex-start;
+  white-space: nowrap;
+  font-size: 2em;
+  box-shadow: inset black 0px 0px 5px 0px;
+}
+body.page header span {
+  padding-left: 0.5em;
+  font-size: 1em;
+}
+body.page header.head {
+  min-height: 50px;
+  position: sticky;
+  top: 0px;
+  z-index: 999;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+body.page header .subtitle {
+  font-size: 0.9em;
+  text-decoration: none;
+  color: red;
+  margin-left: 0.2em;
+}
+body.page header .logo {
+  text-decoration: none;
+  display: flex;
+  color: inherit;
+  flex-direction: row;
+  max-width: min-content;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 0.3em;
+}
+body.page header .nav {
+  padding: 0em 1em;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #060610;
+  font-size: 0.7em;
+}
+body.page header .nav .navbtn {
+  display: block;
+  padding: 0.2em 0.5em;
+  margin: 0px 0.2em;
+  transition: background-color 0.2s, color 0.2s;
+  color: white;
+  text-decoration: none;
+}
+body.page header .nav .navbtn:hover, body.page header .nav .navbtn.active {
+  background-color: #726464;
+  color: black;
+}
+body.page .page.head {
+  width: 100%;
+  z-index: 1;
+}
+body.page .page.head header .title {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  font-size: 3em;
 }
 
 article {
@@ -188,119 +297,6 @@ article.card > footer > .body {
   opacity: 1;
 }
 
-.page {
-  min-width: 100%;
-  background-color: #0a0a0c;
-}
-.page > .body {
-  margin: 5em 0px;
-  margin-top: 1em;
-}
-.page > .article.card:nth-of-type(2n + 1) > .body {
-  align-self: flex-end;
-  margin-right: 1em;
-}
-.page > .article.card:nth-of-type(2n + 1) > header.title {
-  text-align: right;
-}
-.page > .title {
-  border-bottom: 3px solid grey;
-}
-.page > .title header.title {
-  font-size: 1em;
-  color: grey;
-}
-.page > .title header .subtitle {
-  text-decoration: none;
-  color: darkgrey;
-  display: block;
-  margin-left: 1em;
-}
-.page > .title .date {
-  font-family: "Lucida Console", Monaco, monospace;
-}
-
-body.page {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  overflow-x: hidden;
-  justify-content: space-between;
-}
-body.page header {
-  background-color: #141417;
-  padding: 0.5em;
-  margin-top: 0px;
-  z-index: 1;
-  color: lightgrey;
-  width: available;
-  width: -webkit-fill-available;
-  display: flex;
-  justify-content: flex-start;
-  white-space: nowrap;
-  font-size: 2em;
-  box-shadow: inset black 0px 0px 5px 0px;
-}
-body.page header span {
-  padding-left: 0.5em;
-  font-size: 1em;
-}
-body.page header.head {
-  min-height: 50px;
-  position: sticky;
-  top: 0px;
-  z-index: 999;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  flex-wrap: wrap;
-}
-body.page header .subtitle {
-  font-size: 0.9em;
-  text-decoration: none;
-  color: red;
-  margin-left: 0.2em;
-}
-body.page header .logo {
-  text-decoration: none;
-  display: flex;
-  color: inherit;
-  flex-direction: row;
-  max-width: min-content;
-  justify-content: center;
-  align-items: center;
-  padding-bottom: 0.3em;
-}
-body.page header .nav {
-  padding: 0em 1em;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #060610;
-  font-size: 0.7em;
-}
-body.page header .nav .navbtn {
-  display: block;
-  padding: 0.2em 0.5em;
-  margin: 0px 0.2em;
-  transition: background-color 0.2s, color 0.2s;
-  color: white;
-  text-decoration: none;
-}
-body.page header .nav .navbtn:hover, body.page header .nav .navbtn.active {
-  background-color: #726464;
-  color: black;
-}
-body.page .page.head {
-  width: 100%;
-  z-index: 1;
-}
-body.page .page.head header .title {
-  background-color: rgba(0, 0, 0, 0.6);
-  color: white;
-  font-size: 3em;
-}
-
 .page > footer > .body {
   width: auto;
   display: flex;
@@ -317,6 +313,7 @@ body.page > footer {
   padding: 1em;
   padding-bottom: 0px;
   justify-content: space-between;
+  z-index: 9999;
 }
 body.page > footer > footer {
   padding: 0.5px;

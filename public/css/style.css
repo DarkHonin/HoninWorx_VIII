@@ -1,378 +1,4 @@
 @charset "UTF-8";
-article, header {
-  box-shadow: 0px 0px 10px -5px black;
-}
-
-article {
-  z-index: 1;
-  margin-top: 1em;
-  display: flex;
-  flex-direction: column;
-  transition: min-width 0.2s;
-  height: fit-content;
-  position: relative;
-  justify-content: space-between;
-  overflow: hidden;
-  flex-wrap: wrap;
-}
-article > .body {
-  background-color: #020204db;
-  opacity: 1;
-  overflow: hidden;
-}
-article.close > .body {
-  opacity: 0;
-}
-article.close.main > .background {
-  background-size: contain;
-}
-article.main {
-  overflow: hidden;
-  background-color: rgba(0, 0, 0, 0.5);
-  min-width: 100%;
-  z-index: 1;
-  padding: 0em 0em;
-  margin: 5em 0em;
-  justify-content: space-between;
-  min-height: 80vh;
-  margin-top: 0em;
-}
-article.main > header.title {
-  justify-content: space-between;
-}
-article.main > .background {
-  background-size: cover;
-}
-@media (max-width: 800px) {
-  article.main {
-    min-height: 100vw;
-  }
-  article.main > .body {
-    max-width: -webkit-fill-available;
-    margin: 0px;
-    padding: 0px;
-  }
-}
-article .card {
-  display: flex;
-  width: auto;
-  flex-direction: column;
-  color: white;
-  transition: max-height 0.2s, margin 0.2s;
-  max-height: fit-content;
-  transition: height 0.2s;
-  position: relative;
-  height: min-content;
-  margin: 1em;
-}
-article .card > .body {
-  margin: 5em;
-  margin-left: 0px;
-}
-@media (max-width: 700px) {
-  article .card > .body {
-    margin: 1em 0em;
-    margin-top: 20em;
-  }
-}
-article .grid .card > .body {
-  margin: 0px;
-  margin-top: 5em;
-}
-article > .body {
-  display: flex;
-  width: auto;
-  flex-direction: column;
-  color: white;
-  opacity: 1;
-  transition: opacity 0.5s;
-  max-height: fit-content;
-  position: relative;
-  max-width: 800px;
-  padding: 1em;
-  height: min-content;
-  margin: 1em;
-}
-
-article.project > footer > .body {
-  margin: 0px;
-}
-
-footer {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  background-color: #181a21;
-  justify-content: flex-end;
-  padding: 1em;
-}
-footer > .body {
-  margin: auto;
-  margin-right: 1em;
-  padding: 10px;
-  font-size: 0.8em;
-  flex-direction: row;
-  justify-content: space-between;
-  background-color: transparent;
-  display: flex;
-}
-footer > header.title {
-  font-size: 1em;
-  color: grey;
-}
-footer > header .subtitle {
-  text-decoration: none;
-  color: darkgrey;
-  display: block;
-  margin-left: 1em;
-}
-footer > header .subtitle .date {
-  font-family: "Lucida Console", Monaco, monospace;
-}
-
-article.card > .body {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  justify-content: space-between;
-  transform-origin: bottom;
-  transition: opacity 0.3s;
-}
-article.card > footer {
-  color: white;
-  flex-direction: column;
-  padding: 0px;
-}
-article.card > footer > .body {
-  margin: 0.2em;
-  flex-direction: row;
-  display: flex;
-  justify-content: space-between;
-  position: relative;
-}
-
-.card > footer {
-  background-color: #383d4d;
-}
-
-.el.list.grid .card > .body {
-  margin: 0px;
-  margin-top: auto;
-  margin-bottom: 0px;
-  padding: 0px;
-  opacity: 0;
-  transition: opacity 0.2s;
-  max-width: 100%;
-}
-.el.list.grid .card:hover > .body {
-  opacity: 1;
-}
-.el.list .card {
-  opacity: 1;
-  min-height: 50vh;
-  margin-bottom: 0px;
-  margin-top: auto;
-}
-.el.list .card > .body {
-  margin: 1em;
-  max-width: 600px;
-}
-@media (max-width: 800px) {
-  .el.list .card > .body {
-    max-width: -webkit-fill-available;
-    margin: auto;
-    margin-bottom: 0px;
-    opacity: 0;
-  }
-}
-.el.list .card:hover > .body {
-  opacity: 1;
-}
-
-.page {
-  min-width: 100%;
-  background-color: #0a0a0c;
-}
-.page > .body {
-  margin: 5em 0px;
-  margin-top: 1em;
-}
-.page > .article.card:nth-of-type(2n + 1) > .body {
-  align-self: flex-end;
-  margin-right: 1em;
-}
-.page > .article.card:nth-of-type(2n + 1) > header.title {
-  text-align: right;
-}
-.page > .title {
-  border-bottom: 3px solid grey;
-}
-.page > .title header.title {
-  font-size: 1em;
-  color: grey;
-}
-.page > .title header .subtitle {
-  text-decoration: none;
-  color: darkgrey;
-  display: block;
-  margin-left: 1em;
-}
-.page > .title .date {
-  font-family: "Lucida Console", Monaco, monospace;
-}
-
-body.page {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  overflow-x: hidden;
-  justify-content: space-between;
-}
-body.page header {
-  background-color: #141417;
-  padding: 0.5em;
-  margin-top: 0px;
-  z-index: 1;
-  color: lightgrey;
-  width: available;
-  width: -webkit-fill-available;
-  display: flex;
-  justify-content: flex-start;
-  white-space: nowrap;
-  font-size: 2em;
-  box-shadow: inset black 0px 0px 5px 0px;
-}
-body.page header span {
-  padding-left: 0.5em;
-  font-size: 1em;
-}
-body.page header.head {
-  min-height: 50px;
-  position: sticky;
-  top: 0px;
-  z-index: 999;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  flex-wrap: wrap;
-}
-body.page header .subtitle {
-  font-size: 0.9em;
-  text-decoration: none;
-  color: red;
-  margin-left: 0.2em;
-}
-body.page header .logo {
-  text-decoration: none;
-  display: flex;
-  color: inherit;
-  flex-direction: row;
-  max-width: min-content;
-  justify-content: center;
-  align-items: center;
-  padding-bottom: 0.3em;
-}
-body.page header .nav {
-  padding: 0em 1em;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #060610;
-  font-size: 0.7em;
-}
-body.page header .nav .navbtn {
-  display: block;
-  padding: 0.2em 0.5em;
-  margin: 0px 0.2em;
-  transition: background-color 0.2s, color 0.2s;
-  color: white;
-  text-decoration: none;
-}
-body.page header .nav .navbtn:hover, body.page header .nav .navbtn.active {
-  background-color: #726464;
-  color: black;
-}
-body.page .page.head {
-  width: 100%;
-  z-index: 1;
-}
-body.page .page.head header .title {
-  background-color: rgba(0, 0, 0, 0.6);
-  color: white;
-  font-size: 3em;
-}
-
-.page > footer > .body {
-  width: auto;
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  margin: 0px;
-  padding: 10px;
-}
-
-body.page > footer {
-  border-top: 3px solid grey;
-  background-color: #181a21;
-  min-height: 100px;
-  padding: 1em;
-  padding-bottom: 0px;
-  justify-content: space-between;
-}
-body.page > footer > footer {
-  padding: 0.5px;
-  margin: 0px;
-}
-body.page > footer > footer > .body {
-  width: -webkit-fill-available;
-  flex-direction: row;
-}
-body.page > footer > footer > .body > .el {
-  color: grey;
-}
-
-* {
-  order: 1;
-}
-
-.background {
-  background-color: black;
-  top: 0px;
-  bottom: 0px;
-  width: 100vw;
-  height: 100vw;
-  max-width: 100%;
-  max-height: 100%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  background-origin: center;
-  z-index: -1;
-  position: absolute;
-  display: block;
-  flex: 1;
-  transition: background-size 0.5s;
-}
-.background.after {
-  position: relative;
-  min-height: 50vw;
-  background-position: top right;
-}
-@media (min-width: 900px) {
-  .background.after {
-    background-position: center bottom;
-    min-height: 100%;
-    position: absolute;
-  }
-}
-.background.fixed {
-  position: fixed;
-}
-
-* {
-  z-index: 1;
-}
-
 html {
   background-color: darkgrey;
   filter: saturate(2);
@@ -6480,6 +6106,373 @@ readers do not read off random characters that represent icons */
 .fab {
   font-family: "Font Awesome 5 Brands";
   font-weight: 400;
+}
+
+.page {
+  min-width: 100%;
+  background-color: #0a0a0c;
+}
+.page > .body {
+  margin: 5em 0px;
+  margin-top: 1em;
+}
+.page > .article.card:nth-of-type(2n + 1) > .body {
+  align-self: flex-end;
+  margin-right: 1em;
+}
+.page > .article.card:nth-of-type(2n + 1) > header.title {
+  text-align: right;
+}
+.page > .title {
+  border-bottom: 3px solid grey;
+}
+.page > .title header.title {
+  font-size: 1em;
+  color: grey;
+}
+.page > .title header .subtitle {
+  text-decoration: none;
+  color: darkgrey;
+  display: block;
+  margin-left: 1em;
+}
+.page > .title .date {
+  font-family: "Lucida Console", Monaco, monospace;
+}
+
+body.page {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  overflow-x: hidden;
+  justify-content: space-between;
+}
+body.page header {
+  background-color: #141417;
+  padding: 0.5em;
+  margin-top: 0px;
+  z-index: 1;
+  color: lightgrey;
+  width: available;
+  width: -webkit-fill-available;
+  display: flex;
+  justify-content: flex-start;
+  white-space: nowrap;
+  font-size: 2em;
+  box-shadow: inset black 0px 0px 5px 0px;
+}
+body.page header span {
+  padding-left: 0.5em;
+  font-size: 1em;
+}
+body.page header.head {
+  min-height: 50px;
+  position: sticky;
+  top: 0px;
+  z-index: 999;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+body.page header .subtitle {
+  font-size: 0.9em;
+  text-decoration: none;
+  color: red;
+  margin-left: 0.2em;
+}
+body.page header .logo {
+  text-decoration: none;
+  display: flex;
+  color: inherit;
+  flex-direction: row;
+  max-width: min-content;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 0.3em;
+}
+body.page header .nav {
+  padding: 0em 1em;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #060610;
+  font-size: 0.7em;
+}
+body.page header .nav .navbtn {
+  display: block;
+  padding: 0.2em 0.5em;
+  margin: 0px 0.2em;
+  transition: background-color 0.2s, color 0.2s;
+  color: white;
+  text-decoration: none;
+}
+body.page header .nav .navbtn:hover, body.page header .nav .navbtn.active {
+  background-color: #726464;
+  color: black;
+}
+body.page .page.head {
+  width: 100%;
+  z-index: 1;
+}
+body.page .page.head header .title {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  font-size: 3em;
+}
+
+article {
+  z-index: 1;
+  margin-top: 1em;
+  display: flex;
+  flex-direction: column;
+  transition: min-width 0.2s;
+  height: fit-content;
+  position: relative;
+  justify-content: space-between;
+  overflow: hidden;
+  flex-wrap: wrap;
+}
+article > .body {
+  background-color: #020204db;
+  opacity: 1;
+  overflow: hidden;
+}
+article.close > .body {
+  opacity: 0;
+}
+article.close.main > .background {
+  background-size: contain;
+}
+article.main {
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.5);
+  min-width: 100%;
+  z-index: 1;
+  padding: 0em 0em;
+  margin: 5em 0em;
+  justify-content: space-between;
+  min-height: 80vh;
+  margin-top: 0em;
+}
+article.main > header.title {
+  justify-content: space-between;
+}
+article.main > .background {
+  background-size: cover;
+}
+@media (max-width: 800px) {
+  article.main {
+    min-height: 100vw;
+  }
+  article.main > .body {
+    max-width: -webkit-fill-available;
+    margin: 0px;
+    padding: 0px;
+  }
+}
+article .card {
+  display: flex;
+  width: auto;
+  flex-direction: column;
+  color: white;
+  transition: max-height 0.2s, margin 0.2s;
+  max-height: fit-content;
+  transition: height 0.2s;
+  position: relative;
+  height: min-content;
+  margin: 1em;
+}
+article .card > .body {
+  margin: 5em;
+  margin-left: 0px;
+}
+@media (max-width: 700px) {
+  article .card > .body {
+    margin: 1em 0em;
+    margin-top: 20em;
+  }
+}
+article .grid .card > .body {
+  margin: 0px;
+  margin-top: 5em;
+}
+article > .body {
+  display: flex;
+  width: auto;
+  flex-direction: column;
+  color: white;
+  opacity: 1;
+  transition: opacity 0.5s;
+  max-height: fit-content;
+  position: relative;
+  max-width: 800px;
+  padding: 1em;
+  height: min-content;
+  margin: 1em;
+}
+
+article.project > footer > .body {
+  margin: 0px;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background-color: #181a21;
+  justify-content: flex-end;
+  padding: 1em;
+}
+footer > .body {
+  margin: auto;
+  margin-right: 1em;
+  padding: 10px;
+  font-size: 0.8em;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: transparent;
+  display: flex;
+}
+footer > header.title {
+  font-size: 1em;
+  color: grey;
+}
+footer > header .subtitle {
+  text-decoration: none;
+  color: darkgrey;
+  display: block;
+  margin-left: 1em;
+}
+footer > header .subtitle .date {
+  font-family: "Lucida Console", Monaco, monospace;
+}
+
+article.card > .body {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-between;
+  transform-origin: bottom;
+  transition: opacity 0.3s;
+}
+article.card > footer {
+  color: white;
+  flex-direction: column;
+  padding: 0px;
+}
+article.card > footer > .body {
+  margin: 0.2em;
+  flex-direction: row;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+.card > footer {
+  background-color: #383d4d;
+}
+
+.el.list.grid .card > .body {
+  margin: 0px;
+  margin-top: auto;
+  margin-bottom: 0px;
+  padding: 0px;
+  opacity: 0;
+  transition: opacity 0.2s;
+  max-width: 100%;
+}
+.el.list.grid .card:hover > .body {
+  opacity: 1;
+}
+.el.list .card {
+  opacity: 1;
+  min-height: 50vh;
+  margin-bottom: 0px;
+  margin-top: auto;
+}
+.el.list .card > .body {
+  margin: 1em;
+  max-width: 600px;
+}
+@media (max-width: 800px) {
+  .el.list .card > .body {
+    max-width: -webkit-fill-available;
+    margin: auto;
+    margin-bottom: 0px;
+    opacity: 0;
+  }
+}
+.el.list .card:hover > .body {
+  opacity: 1;
+}
+
+.page > footer > .body {
+  width: auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin: 0px;
+  padding: 10px;
+}
+
+body.page > footer {
+  border-top: 3px solid grey;
+  background-color: #181a21;
+  min-height: 100px;
+  padding: 1em;
+  padding-bottom: 0px;
+  justify-content: space-between;
+  z-index: 9999;
+}
+body.page > footer > footer {
+  padding: 0.5px;
+  margin: 0px;
+}
+body.page > footer > footer > .body {
+  width: -webkit-fill-available;
+  flex-direction: row;
+}
+body.page > footer > footer > .body > .el {
+  color: grey;
+}
+
+* {
+  order: 1;
+}
+
+.background {
+  background-color: black;
+  top: 0px;
+  bottom: 0px;
+  width: 100vw;
+  height: 100vw;
+  max-width: 100%;
+  max-height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-origin: center;
+  z-index: -1;
+  position: absolute;
+  display: block;
+  flex: 1;
+  transition: background-size 0.5s;
+}
+.background.after {
+  position: relative;
+  min-height: 50vw;
+  background-position: top right;
+}
+@media (min-width: 900px) {
+  .background.after {
+    background-position: center bottom;
+    min-height: 100%;
+    position: absolute;
+  }
+}
+.background.fixed {
+  position: fixed;
 }
 
 .el {
