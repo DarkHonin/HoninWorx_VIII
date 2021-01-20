@@ -1,0 +1,31 @@
+.page > footer > .body {
+  width: auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin: 0px;
+  padding: 10px;
+}
+
+body.page > footer {
+  border-top: 3px solid grey;
+  background-color: #181a21;
+  min-height: 100px;
+  padding: 1em;
+  padding-bottom: 0px;
+  justify-content: space-between;
+  z-index: 9999;
+}
+body.page > footer > footer {
+  padding: 0.5px;
+  margin: 0px;
+}
+body.page > footer > footer > .body {
+  width: -webkit-fill-available;
+  flex-direction: row;
+}
+body.page > footer > footer > .body > .el {
+  color: grey;
+}
+
+/*# sourceMappingURL=footer.css.map */

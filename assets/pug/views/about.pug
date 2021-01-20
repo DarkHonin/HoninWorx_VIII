@@ -1,0 +1,11 @@
+extends ../template.pug
+block content
+    .page
+        - var postImageUrl = '../../img/latest.jpg'
+        article.main
+            header.title
+                span About
+
+            .body
+                include ../body/about.pug
+            .background.after(style=`background-image: URL("${postImageUrl}")`)

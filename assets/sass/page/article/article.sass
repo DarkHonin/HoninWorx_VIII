@@ -1,0 +1,61 @@
+article
+    z-index: 1
+    margin-top: 1em
+
+    display: flex
+    flex-direction: column
+    // min-width: 700px
+    transition: min-width .2s
+    height: fit-content
+    position: relative
+    justify-content: space-between
+    overflow: hidden
+    flex-wrap: wrap
+
+    &>.body
+        background-color: #020204db
+        opacity: 1
+        
+        overflow: hidden
+    &.close
+        &>.body
+            opacity: 0
+        &.main>.background
+            background-size: contain
+
+    &.main
+        overflow: hidden
+        background-color: rgba(0,0,0, .5)
+        min-width: 100%
+        z-index: 1
+        padding: 0em 0em
+        margin: 5em 0em
+        justify-content: space-between
+        min-height: 80vh
+        margin-top: 0em
+        &>header.title
+            justify-content: space-between
+        &>.background
+            background-size: cover
+
+
+        @media ( max-width: 800px )
+            min-height: 100vw
+            &>.body
+                max-width: -webkit-fill-available
+                margin: 0px
+                padding: 0px
+    
+    
+    
+        
+       
+
+    @import ./body.sass
+    &>.body
+        @include root_body
+
+@import ./project
+    
+@import ./footer
+@import ./card

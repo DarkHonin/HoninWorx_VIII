@@ -1,0 +1,46 @@
+.page
+    &>.body
+        margin: 5em 0px
+        margin-top: 1em
+    &>.article
+        &.card:nth-of-type(2n + 1)
+            &>.body
+                align-self: flex-end
+                margin-right: 1em
+            &>header.title
+                text-align: right
+
+    min-width: 100%
+    background-color: rgb(10, 10, 12)
+    &>.title
+        border-bottom: 3px solid grey
+        header
+            &.title
+                font-size: 1em
+                color: grey
+            .subtitle
+                text-decoration: none
+                color: darkgrey
+                display: block
+                margin-left: 1em
+        .date
+            font-family: "Lucida Console", Monaco, monospace
+body.page
+    @import ./header
+    display: flex
+    flex-direction: column
+    flex-wrap: wrap
+    overflow-x: hidden
+    justify-content: space-between
+    .page.head
+        width: 100%
+        z-index: 1
+        header
+            .title
+                background-color: rgba(0,0,0, .6)
+                color: white
+                font-size: 3em
+
+@import ./article/article
+@import ./footer
+@import ./background

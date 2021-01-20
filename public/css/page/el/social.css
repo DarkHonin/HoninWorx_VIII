@@ -1,0 +1,24 @@
+.icon {
+  display: flex;
+  position: relative;
+  font-size: 2em;
+  text-decoration: none;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  transition: filter 0.2s;
+}
+.icon:hover {
+  filter: opacity(0.5);
+}
+.icon.telegram {
+  color: #2CA5E0;
+}
+.icon.twitter {
+  color: #1DA1F2;
+}
+.icon.youtube {
+  color: #FF0000;
+}
+
+/*# sourceMappingURL=social.css.map */

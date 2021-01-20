@@ -1,0 +1,15 @@
+block vars
+    - var isMain = false
+    - var articleHeading = '__article__heading__'
+    - var cardClass = null
+    - var backgroundImage = null
+
+article.card(class= `${isMain ? 'main' : ''} ${cardClass ? cardClass : ''}` )
+    header.title=articleHeading
+    .body
+        block body
+    footer
+        .body
+            block footer
+    if backgroundImage
+        .background(style=`background-image: URL("${backgroundImage}")`)

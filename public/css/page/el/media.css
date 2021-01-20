@@ -1,0 +1,37 @@
+.el.media > .body > .el {
+  border: black 2px solid;
+}
+.el.media > .body > .img {
+  background-color: black;
+  margin: 0px;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.el.media > .body > .img > .body {
+  margin: auto;
+  max-width: 100%;
+  transition: max-width 0.5s;
+}
+.el.media > .body > .img.close {
+  max-height: min-content;
+  min-height: 0px;
+}
+.el.media > .body > .img.close > .body {
+  width: auto;
+  margin: 0px;
+  max-width: 200px;
+  opacity: 1;
+}
+.el.media > .body > .img > footer {
+  padding: 0em;
+  width: fit-content;
+  min-width: 25%;
+  flex: 1;
+}
+.el.media > .body > .img > footer > .body {
+  flex-direction: row;
+  justify-content: space-between;
+  width: -webkit-fill-available;
+}
+
+/*# sourceMappingURL=media.css.map */

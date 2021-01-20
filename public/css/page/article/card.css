@@ -1,0 +1,60 @@
+article.card > .body {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-between;
+  transform-origin: bottom;
+  transition: opacity 0.3s;
+}
+article.card > footer {
+  color: white;
+  flex-direction: column;
+  padding: 0px;
+}
+article.card > footer > .body {
+  margin: 0.2em;
+  flex-direction: row;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+.card > footer {
+  background-color: #383d4d;
+}
+
+.el.list.grid .card > .body {
+  margin: 0px;
+  margin-top: auto;
+  margin-bottom: 0px;
+  padding: 0px;
+  opacity: 0;
+  transition: opacity 0.2s;
+  max-width: 100%;
+}
+.el.list.grid .card:hover > .body {
+  opacity: 1;
+}
+.el.list .card {
+  opacity: 1;
+  min-height: 50vh;
+  margin-bottom: 0px;
+  margin-top: auto;
+}
+.el.list .card > .body {
+  margin: 1em;
+  max-width: 600px;
+}
+@media (max-width: 800px) {
+  .el.list .card > .body {
+    max-width: -webkit-fill-available;
+    margin: auto;
+    margin-bottom: 0px;
+    opacity: 0;
+  }
+}
+.el.list .card:hover > .body {
+  opacity: 1;
+}
+
+/*# sourceMappingURL=card.css.map */

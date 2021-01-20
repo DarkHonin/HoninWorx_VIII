@@ -1,0 +1,33 @@
+.note .logo {
+  float: left;
+  margin: 1em;
+}
+.note > .body {
+  font-family: "Lucida Console", Monaco, monospace;
+  background-color: black;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  display: block;
+  padding: 1em;
+  color: white;
+  resize: none;
+}
+.note header.title {
+  font-size: 1.5em;
+  justify-content: space-between;
+}
+.note header.title > .body > .subtitle {
+  font-size: 0.5em;
+}
+
+.grid .card .note > .body {
+  max-height: 100px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+/*# sourceMappingURL=note.css.map */

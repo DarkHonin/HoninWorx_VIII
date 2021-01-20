@@ -1,8 +1,9 @@
 var mysql = require('mysql')
+const dotenv = require("dotenv");
+// if(dotenv)
+dotenv.config();
 
-module.exports = db = mysql.createConnection({
-    host: 'ixnzh1cxch6rtdrx.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
-    user: process.env['db_user'],
-    password: process.env['db_password'],
-    database: process.env['db_database']
-  })
+const mongoose = require('mongoose')
+mongoose.set('debug', true);
+module.exports = () => 
+  mongoose.connect(process.env['db_srv'], {useNewUrlParser: true});

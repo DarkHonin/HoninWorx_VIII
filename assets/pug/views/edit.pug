@@ -1,0 +1,50 @@
+extends ../template.pug
+
+block styles
+    link(rel="stylesheet", href="/stylesheets/style2.css")
+block content
+    div.container
+        article#edit
+            if(focus)
+                .container
+                    span.head
+                        input(type='text' value=focus.title).title
+                        span.buttons
+                            span(title=`Age: `)
+                                i.fas.fa-hourglass-start
+                    textarea().body=focus.note
+        article#display
+            if(focus)
+                .container
+                    span.head
+                        span.title=focus.title
+                        span.buttons
+                            span(title=`Age: `)
+                                i.fas.fa-hourglass-start
+                            span#save(title=`Save: ` data-project=query.project  data-post=query.post)
+                                i.fas.fa-save
+                    div#md_preview.body!=methods.markdown(focus.note)
+            else
+                .container
+                    span.head
+                        span.title HoninWorx
+                    div.body
+                        h1 Some markdown comes here
+                        p Only problem is I cant edit this directly yet
+                        ul
+                            li
+                                h1 things this can do
+                                ul
+                                    li  Navigate projects
+                                    li  Navigate posts inside of project
+                            li 
+                                h1  Things I want to do
+                                ul
+                                    li  Create new projects
+                                    li  Create new posts
+                                    li  Edit existing posts/projects
+                                    li  Specify media associated with a post
+block scripts
+    script(src="/javascripts/common.js")
+    script(src=" https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.0/showdown.min.js")
+    script(src="/javascripts/edit.js")

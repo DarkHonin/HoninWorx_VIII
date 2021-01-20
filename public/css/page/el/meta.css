@@ -1,0 +1,37 @@
+.el.meta > .body {
+  margin: 0px;
+  flex-direction: column;
+}
+.el.meta > .body > .date::before {
+  content: "Date:";
+}
+.el.meta > .body > .ext::before {
+  content: "Extention:";
+}
+.el.meta > .body > .size::before {
+  content: "Size:";
+}
+.el.meta > .body > .name::before {
+  content: "Name:";
+}
+.el.meta > .body > [data-title]::before {
+  content: attr(data-title);
+}
+.el.meta > .body > span {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: grey;
+  margin: 0.2em 0em;
+  white-space: nowrap;
+}
+.el.meta > .body > span::before {
+  margin: auto 1em;
+}
+.el.meta > .body > span > .body {
+  display: inline-block;
+  margin: auto 1em;
+  color: white;
+}
+
+/*# sourceMappingURL=meta.css.map */

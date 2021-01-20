@@ -1,0 +1,61 @@
+extends ../template.pug
+
+block content
+    - var edit = 0
+
+    .page
+        article.main.project
+            - var title = '__/projectName'
+            - var tags = ['these', 'are', 'supposed', 'to', 'be', 'tags']
+            - var note = 'Some text here describing the project, character limit is debateable but will see'
+            - var postImageUrl = '../../img/latest.jpg'
+            .body            
+                header.title Project 
+                        span.subtitle=project.title
+                .el.note
+                    header.title
+                        span Note
+                    .body!=project.note_md
+                        
+                footer
+                    .body
+                        .el.link
+                            span.body(title=`Created: ${project.createdTimeStamp()}`)
+                                <i class="fas fa-calendar-day"></i>
+                            span.body(title=`Updated: ${project.updatedTimeStamp()}`)
+                                i.fas.fa-clock
+                            span.body(title=`Posts: ${project.posts.length}`)
+                                i.fas.fa-book
+                                
+            .post.background(style=`background-image: URL("${postImageUrl}")`)
+    .page
+        header.title
+            span Projects
+        .body
+            .el.list.grid
+                .body
+                    -var x = 0
+                    - while(x < 3 && x < project.posts.length)
+                        - var p = project.posts[x]
+                        - x++
+                        article.card
+                            header.title=p.title
+                            .body
+                                 .el.note(id=p._id)
+                                    header.title Note
+                                    .body!=p.note_md
+                            footer
+                                .body
+                                    .el.link
+                                        span.body(title=`Created: ${p.createdTimeStamp()}`)
+                                            <i class="fas fa-calendar-day"></i>
+                                        span.body(title=`Updated: ${p.updatedTimeStamp()}`)
+                                            i.fas.fa-clock
+                            if backgroundImage
+                                .background(style=`background-image: URL("${backgroundImage}")`)
+                footer
+                    .body
+                        a.el.loadmore(title='View More', href='#')
+                            .body
+                                i.fas.fa-arrow-down
+        

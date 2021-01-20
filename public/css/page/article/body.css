@@ -1,0 +1,29 @@
+.card {
+  display: flex;
+  width: auto;
+  flex-direction: column;
+  color: white;
+  transition: max-height 0.2s, margin 0.2s;
+  max-height: fit-content;
+  transition: height 0.2s;
+  position: relative;
+  height: min-content;
+  margin: 1em;
+}
+.card > .body {
+  margin: 5em;
+  margin-left: 0px;
+}
+@media (max-width: 700px) {
+  .card > .body {
+    margin: 1em 0em;
+    margin-top: 20em;
+  }
+}
+
+.grid .card > .body {
+  margin: 0px;
+  margin-top: 5em;
+}
+
+/*# sourceMappingURL=body.css.map */

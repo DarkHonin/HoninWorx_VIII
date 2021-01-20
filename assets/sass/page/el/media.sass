@@ -1,0 +1,31 @@
+.el.media
+    &>.body
+        &>.el
+            border: black 2px solid
+        &>.img
+            background-color: black
+            margin: 0px
+            flex-direction: row
+            flex-wrap: wrap
+            &>.body
+                margin: auto
+                max-width: 100%
+                transition: max-width .5s
+                
+            &.close
+                max-height: min-content
+                min-height: 0px
+                &>.body 
+                    width: auto
+                    margin: 0px
+                    max-width: 200px
+                    opacity: 1
+            &>footer
+                padding: 0em
+                width: fit-content
+                min-width: 25%
+                flex: 1
+                &>.body
+                    flex-direction: row
+                    justify-content: space-between
+                    width: -webkit-fill-available
