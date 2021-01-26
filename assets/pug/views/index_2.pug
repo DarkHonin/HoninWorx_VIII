@@ -5,7 +5,7 @@ block styles
 block content
     div.container
         asside#projectList
-            if(edit)
+            if env.e_edit && roles.can(user, 'edit')
                 div.search
                     span.searchblock(contenteditable="true" data-target='project' )
                 div.buttons
@@ -20,7 +20,7 @@ block content
                             span=p.title
         asside#pageList
             if(pages)
-                if(edit)
+                if env.e_edit && roles.can(user, 'edit')
                     div.search
                         span.searchblock(contenteditable="true" data-target='page' )
                     div.buttons
@@ -33,7 +33,7 @@ block content
                         li(data-id=p._id class=(query.page && p._id == query.page ? 'active' : ''))
                             span=p.title
         article
-            if(edit)
+            if  env.e_edit && roles.can(user, 'edit')
                 .container#tools
                     .head
                         div.buttons
@@ -68,5 +68,5 @@ block scripts
     script(src="/javascripts/common.js")
     script(src="/javascripts/search.js")
     script(src="/javascripts/list.js")
-    if(edit)
+    if(env.e_edit && user)
         script(src="/javascripts/edit.js")

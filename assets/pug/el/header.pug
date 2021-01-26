@@ -3,5 +3,9 @@ header.title.head
         img(src='/img/logo.jpg' height='45px' width='45px' style='border-radius: 100%')
         span HoninWorx
     .el.link
-        <script async src="https://telegram.org/js/telegram-widget.js?14" data-telegram-login="noodle_bot" data-size="small" data-onauth="onTelegramAuth(user)" data-request-access="write"></script>
+        if user
+            span.uname=user.uname
+            a(href='/user/logout') Logout
+            span=user.role
+            
         

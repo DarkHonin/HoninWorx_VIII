@@ -54,8 +54,6 @@ const md = new MarkdownIt().use(markdownItAttrs, {
     rightDelimiter: '}',
     allowedAttributes: ['id', 'class',]
 })
-.use(require('@gerhobbelt/markdown-it-container'), 'row', rowContainer)
-.use(require('@gerhobbelt/markdown-it-container'), 'col', colContainer);
 
 function getQuery(req, res, next){
     var query = [

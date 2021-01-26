@@ -1,3 +1,4 @@
+
 const getQuery = new URLSearchParams(window.location.search)
 
 const commonNet = {
@@ -33,5 +34,8 @@ const commonNet = {
 
 
 function onTelegramAuth(user) {
-    alert('Logged in as ' + user.first_name + ' ' + user.last_name + ' (' + user.id + (user.username ? ', @' + user.username : '') + ')');
+    commonNet.fetch_middleware('/tg_auth', { user }).then(j => {
+        if(j.status)
+            document.cookie = `tg_user=${JSON.stringify(user)}`
+    });
 }

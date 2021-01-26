@@ -63,10 +63,11 @@ html {
           height: .05em;
           background-color: white; }
   .container article {
+    font-family: monospace;
     display: flex;
     flex: 1;
     flex-direction: column;
-    background-color: #4d1e1e;
+    background-color: #252525;
     justify-content: flex-start;
     align-items: center;
     overflow-y: auto;
@@ -142,5 +143,20 @@ html {
     #display img.left_3 {
       max-width: 33%;
       align-self: flex-start; }
+
+#login {
+  margin: auto 2em;
+  display: flex;
+  flex-direction: column; }
+  #login .note {
+    margin: 2em auto;
+    max-width: 55%;
+    padding-left: 1.5em;
+    text-indent: -1.5em; }
+  #login .block {
+    max-width: 30%;
+    display: inherit;
+    flex-direction: inherit;
+    margin: auto; }
 
 /*# sourceMappingURL=style2.css.map */

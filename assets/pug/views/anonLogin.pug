@@ -1,0 +1,19 @@
+extends ../template.pug
+
+block styles
+    link(rel="stylesheet", href="/stylesheets/style2.css")
+
+block content
+    .container
+        article
+            .container
+                #login
+                    img(src='/img/logo.jpg' height='125px' width='125px' style='border-radius: 100%; margin: 1em auto;')
+                    p.note Because this page is still under construction I have to ask you press these buttons to enter.
+                    .block
+                        input#password(type='password' name='password' placeholder='Password')
+                        button#submit Login
+
+block scripts
+    script(src="/javascripts/common.js")
+    script(src="/javascripts/anonRest.js")

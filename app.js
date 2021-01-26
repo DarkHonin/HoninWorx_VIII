@@ -7,9 +7,14 @@ var sassMiddleware = require('node-sass-middleware');
 
 var indexRouter = require('./routes/index');
 var editRouter = require('./routes/edit').router;
+var {abstractUserRouter} = require('./user/router')
+var {abstractUserModel} = require('./user/db')
+var {createUser} = require('./access_link/admin')
 var db_init = require('./db/db')
 var app = express();
 
+var {linkRouter} = require('./access_link/router')
+var {jwtMiddleware} = require('./common/jwt')
 
 // Body parser
 indexRouter.use(express.json());
@@ -24,6 +29,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
+// app.use(tg_auth_middleware)
+
 app.use(sassMiddleware({
   src: path.join(__dirname, '/assets/sass'),
   dest: path.join(__dirname, '/public/stylesheets'),
@@ -33,15 +40,19 @@ app.use(sassMiddleware({
   debug: true
 }));
 
-const Project = require('./db/project');
-
-console.log("env::: "+(process.env.edit))
-
 app.use(express.static(path.join(__dirname, 'public')));
 db_init()
-app.use('/', indexRouter);
-if(process.env.edit)
-  app.use('/', editRouter);
+abstractUserModel.has_admin().then(has => has ? console.log("Admin user already exists") : createUser("default_admin", 'password', 'admin'))
+
+const config = require('./common/config') 
+app.locals.env = config
+
+                    app.use('/', indexRouter);
+                    app.use('/link/', linkRouter)
+                    app.use('/user/', abstractUserRouter)
+if(config.e_edit)   app.use('/', editRouter);
+
+// if(config.e_login)  app.use('/tg_auth', authRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -58,5 +69,9 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+
+console.log(config)
+
 
 module.exports = app;
