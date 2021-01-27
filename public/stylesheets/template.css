@@ -1,0 +1,74 @@
+* {
+  color: white;
+  font-family: monospace; }
+
+html {
+  background-color: #101113; }
+
+body {
+  margin: auto;
+  margin-bottom: 0px;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  max-height: 100vh; }
+  body > .container {
+    flex: 1;
+    overflow-y: auto; }
+
+#mainContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch; }
+
+header, footer {
+  background-color: #181a21;
+  padding: .5em; }
+
+header {
+  border-bottom: 2px solid grey;
+  font-size: 1.5em; }
+
+footer {
+  border-top: 2px solid grey; }
+
+.buttons {
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-end; }
+  .buttons .button {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    text-decoration: none; }
+    .buttons .button span {
+      padding: 1em; }
+  .buttons .button.main {
+    justify-self: flex-start;
+    margin: auto;
+    margin-left: 1em; }
+
+#mainContainer > article {
+  max-width: 50%;
+  width: 100%;
+  margin: auto;
+  background-color: rgba(0, 0, 0, 0.7);
+  border: 2px solid grey;
+  border-top: none;
+  border-bottom: none;
+  height: 100%;
+  display: flex; }
+  #mainContainer > article #message {
+    margin: auto;
+    margin-top: 5em;
+    max-width: 75%; }
+    #mainContainer > article #message .head {
+      font-size: 1.5em;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 4em; }
+      #mainContainer > article #message .head > * {
+        margin: .2em; }
+
+/*# sourceMappingURL=template.css.map */
