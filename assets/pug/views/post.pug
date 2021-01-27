@@ -1,73 +1,19 @@
 extends ../template.pug
 
-
-
-
-block meta
-    - var title = 'Test Project'
-    - var tags = ['these', 'are', 'supposed', 'to', 'be', 'tags']
-    - var note = 'Some text here describing the project, character limit is debateable but will see'
-    - var postImageUrl = '../../img/post.jpg'
-    meta(name="description", content=note)
-    title=title + '@HoninWorx'
-
+block styles
+    link(rel="stylesheet", href="/stylesheets/style2.css")
 block content
-    article.main#post
-        header.title
-            .body
-                span Post
-                a(href='./project.html').subtitle __/projectName
-                span(style='text-decoration: none') :
-                span.subtitle __/postName
-            .el.link
-                a.body.notitle(href='#' title='Hide Body' onclick='document.querySelector("#post").classList.toggle("close")')
-                    i.fas.fa-eye
-        .body            
-            .el.note
-                header.title
-                    span Note
-                p.body=note
-            .el.media.list
-                header.title
-                    span Media
-                .body
-                    .el.img.card.close#post_1
-                        img.body(src='../../img/latest.jpg')
-                        footer
-                            .body
-                                .el.meta
-                                    .body
-                                        span.name(data-title='File Name')
-                                            span.body latest.jpg
-                                        span.date(data-title='Posted')
-                                            span.body 10:40 AM 11/19/2020
-                                        span.ext
-                                            span.body .jpg
-                                        span.size
-                                            span.body 157kb
-                                .el.link(onClick='document.querySelector("#post_1").classList.toggle("close")')
-                                    a.body(href='#')
-                                        i.fas.fa-eye
-                    .el.img.card#post_2
-                        img.body(src=postImageUrl)
-                        footer
-                            .body
-                                .el.meta
-                                    .body
-                                        span.name(data-title='File Name')
-                                            span.body post.jpg
-                                        span.date(data-title='Posted')
-                                            span.body 10:40 AM 11/19/2020
-                                        span.ext
-                                            span.body .jpg
-                                        span.size
-                                            span.body 157kb
-                                .el.link(onClick='document.querySelector("#post_2").classList.toggle("close")')
-                                    a.body(href='#')
-                                        i.fas.fa-eye
-            
-            footer
-                .body
-                    
-
-        .background.fixed(style=`background-image: URL("${postImageUrl}")`)
+    div.container
+        article
+            .container#display
+                span.head
+                    span.title=focus.title
+                    div.buttons
+                        span(title=`Age: `)
+                            i.fas.fa-hourglass-start
+                div.body!=focus.markdown()
+                        
+block scripts
+    script(src="/javascripts/common.js")
+    script(src="/javascripts/search.js")
+    script(src="/javascripts/list.js")

@@ -8,7 +8,7 @@ const titlePreivew = document.querySelector("#display .title")
 
 const save = document.querySelector("#save")
 const del = document.querySelector("#delete")
-const creates = document.querySelectorAll('.create')
+const create_post = document.querySelector("#newPost")
 const togglePreview = document.querySelector("#togglePreview")
 
 var timer = false
@@ -19,7 +19,7 @@ noteEdit.addEventListener('keyup', e => {
     }
     timer = setTimeout(() => {
         console.log(e.target.value)
-        commonNet.fetch_middleware(`/markdown`, {md : noteEdit.value}).then(data => notePreview.innerHTML = data.payload)
+        commonNet.fetch_middleware(`markdown`, {md : noteEdit.value}).then(data => notePreview.innerHTML = data.payload)
     }, 500)
 })
 
@@ -46,17 +46,13 @@ save.addEventListener("click", (e) => {
     commonNet.fetch_middleware(window.location, data).then(window.location = window.location)
 }, false)
 
-creates.forEach(b => {
-
-    b.addEventListener('click', (e) => {        
-        commonNet.fetch_middleware(`/create?`+(b.hasAttribute('data-project') ? `project=${b.getAttribute('data-project')}` : ''), {}).then(j => {
-            if(j['posts._id'])
-                commonNet.pushQuery('page', j['posts._id'])
-            else
-                commonNet.pushQuery('project', j._id)
-        })
-    })
-});
+create_post.addEventListener('click', (e) => {
+    var data = {
+        title : titleEdit.value,
+        content : noteEdit.value
+    }
+    commonNet.fetch_middleware(window.location, data).then( j => window.location = `/post/${j.postID}`)
+})
 
 del.addEventListener('click', (e) => {
     commonNet.fetch_middleware(`/delete`+window.location.search, {}).then(j => {
