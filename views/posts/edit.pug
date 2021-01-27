@@ -1,0 +1,38 @@
+extends ../template.pug
+
+block styles
+    link(rel="stylesheet", href="/stylesheets/style2.css")
+block content
+    div.container
+        article
+            .container#tools
+                .head.buttons
+                    div.button
+                        span#newProject(title='New Project')
+                            i.fas.fa-star
+                        span#newPost(title='New Post')
+                            i.fas.fa-star
+                    div.button
+                        span#save
+                            i.fas.fa-save
+                        span#delete
+                            i.fas.fa-trash
+                        span#togglePreview
+                            i.fas.fa-eye
+            .container#edit
+                span.head
+                    input(type='text' value=(focus ? focus.title : '')).title
+                textarea().body=(focus ? focus.content : '')
+            .container#display
+                span.head
+                    span.title=focus.title
+                    div.buttons
+                        span(title=`Age: `)
+                            i.fas.fa-hourglass-start
+                div.body!=focus.markdown()
+                        
+block scripts
+    script(src="/javascripts/common.js")
+    script(src="/javascripts/search.js")
+    script(src="/javascripts/list.js")
+    script(src="/javascripts/edit.js")

@@ -37,6 +37,6 @@ projectSchema.methods.updatedTimeStamp = function(){
 // projectSchema.set('toObject', { virtuals: true });
 // projectSchema.set('toJSON', { virtuals: true });
 
-const projectModel = mongoose.model('Project', projectSchema)
+// const projectModel = mongoose.model('Project', projectSchema)
 
-module.exports = {projectSchema, projectModel}
+module.exports = {projectSchema}

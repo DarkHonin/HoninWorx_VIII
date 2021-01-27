@@ -10,6 +10,6 @@ const mediaSchema = new mongoose.Schema({
     meta : Object
   }, { timestamps: true });
 
-const mediaModel = mongoose.model('Media', mediaSchema)
+// const mediaModel = mongoose.model('Media', mediaSchema)
 
-module.exports = {mediaSchema, mediaModel}
+module.exports = {mediaSchema}

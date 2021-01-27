@@ -4,12 +4,12 @@ var {ObjectId} = require('mongoose').Types
 var {postModel, md} = require('./db')
 
 router.get('/', (req, res) => {
-    res.render('edit', {focus : new postModel({title : "demo", content : "# THIS IS a HEADER"})})
+    res.render('posts/edit', {focus : new postModel({title : "demo", content : "# THIS IS a HEADER"})})
 })
 
 router.get('/list', (req, res) => {
     postModel.find({}).then(els => {
-        res.render('list', {list : els})
+        res.render('posts/list', {list : els})
     })
 })
 
@@ -43,7 +43,7 @@ router.get('/:postID', (req, res) => {
 })
 
 router.get('/:postID/edit', (req, res) => {
-    res.render('edit', {focus : res.target})
+    res.render('posts/edit', {focus : res.target})
 })
 
 router.post('/:postID', (req, res) => {
