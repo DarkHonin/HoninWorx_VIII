@@ -5,49 +5,6 @@ var project = require('../db/project').projectModel
 var MarkdownIt = require('markdown-it')
 var markdownItAttrs = require('@gerhobbelt/markdown-it-attrs');
 
-
-const rowRegex = /row/
-const colRegex = /col/
-
-const rowContainer = {
-  validate: function(params) {
-    console.log(params.match(rowRegex))
-    return params.trim().match(rowRegex);
-  },
-
-  render: function (tokens, idx) {
-    var m = tokens[idx].info.trim().match(rowRegex);
-    if (tokens[idx].nesting === 1) {
-      // opening tag
-      return `<div class="row">\n`;
-
-    } else {
-      // closing tag
-      return '</div>\n';
-    }
-  }
-}
-
-const colContainer = {
-  validate: function(params) {
-    return params.trim().match(colRegex);
-  },
-
-  render: function (tokens, idx) {
-    var m = tokens[idx].info.trim().match(colRegex);
-    if (tokens[idx].nesting === 1) {
-      // opening tag
-      return `<div class="col">\n`;
-
-    } else {
-      // closing tag
-      return '</div>\n';
-    }
-  }
-}
-
-
-
 const md = new MarkdownIt().use(markdownItAttrs, {
     // optional, these are default options
     leftDelimiter: '{',

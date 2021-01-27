@@ -1,0 +1,17 @@
+extends ../template.pug
+
+block styles
+    link(rel="stylesheet", href="/stylesheets/style2.css")
+block content
+    div.container
+        article
+            ul
+                for i in list
+                    li
+                        a(href=`/post/${i._id}`)=i.title
+                        
+block scripts
+    script(src="/javascripts/common.js")
+    script(src="/javascripts/search.js")
+    script(src="/javascripts/list.js")
+    script(src="/javascripts/edit.js")
