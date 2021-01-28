@@ -81,50 +81,7 @@ html
         flex-grow: 1
         color: white
        
-        .container
-            // height: 100%
-            border: 1px solid grey
-            width: 100%
-            background-color: rgba(0,0,0,.7)
-            flex-basis: 90%
-            flex-direction: column
-            margin: 0px auto
-            margin-top: 1em
-            max-width: 800px
-            flex: 100%
-            &:after
-                content: ""
-                display: block
-                min-width: 100%
-            .head
-                padding: .5em 0em
-                display: flex
-                justify-content: space-between
-                position: relative
-                &::after
-                    content: ""
-                    position: absolute
-                    bottom: 0px
-                    width: 100%
-                    height: .05em
-                    background-color: white
-                &>span
-                    margin: 0em .5em
-                .title
-                    font-size: 1.5em
-            .body, textarea
-                resize: none
-                padding: 1em
-                height: 100%
-                
-            .body
-                display: block
-            &#edit
-                display: none
-                &.open
-                    display: flex
-                    & + #display
-                        display: none !important
+        
 #tools
     flex: 0
 #display

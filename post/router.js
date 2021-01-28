@@ -22,9 +22,7 @@ router.post('/', (req, res) => {
     })
 })
 
-router.post('/markdown', (req, res) => {
-    res.json({payload: md.render(req.body.md)})
-})
+
 
 router.use('/:postID', (req, res, next) => {
     var oid = req.params['postID']
@@ -38,19 +36,24 @@ router.use('/:postID', (req, res, next) => {
         res.json({status: 0, messahge :`Invalid post ID: ${oid}`})
 })
 
+router.post('/:postID/markdown', (req, res) => {
+    res.json({payload: md.render(req.body.md)})
+})
+
 router.get('/:postID', (req, res) => {
-    res.render('post', {focus : res.target})
+    res.render('posts/post', {focus : res.target})
 })
 
 router.get('/:postID/edit', (req, res) => {
     res.render('posts/edit', {focus : res.target})
 })
 
-router.post('/:postID', (req, res) => {
+router.post('/:postID/edit', (req, res) => {
     var setting = req.body
+    console.log(setting)
     res.target.title = setting.title
     res.target.content = setting.content
-
+    console.log(res.target)
     res.target.save().then(d => res.json({status : 1, postID : d._id}))
 })
 

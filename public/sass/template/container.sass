@@ -1,0 +1,23 @@
+.container
+    // border: 1px solid grey
+    display: flex
+    flex-direction: column
+    margin: 1em 5em
+    .head
+        display: flex
+        flex-direction: row
+        justify-content: space-between
+        align-items: center
+        .title
+            font-size: 2em
+            margin: 2em 1em
+        
+
+    .body
+        display: block
+    &#edit
+        display: none
+        &.open
+            display: flex
+            & + #display
+                display: none !important

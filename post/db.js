@@ -13,6 +13,9 @@ const md = new MarkdownIt().use(markdownItAttrs, {
 })
 
 const mediaSchema = new mongoose.Schema({
+    type : {type: String, enum : ['img', 'video'] },
+    title : String,
+    thumbnail : String
   }, { timestamps: true });
 
 const mediaModel = mongoose.model('Media', mediaSchema)
@@ -26,7 +29,20 @@ const postSchema = new mongoose.Schema({
   }, { timestamps: true });
 
 postSchema.methods.markdown = function(){
+    if(!this.content)
+        return "### NO cONTENt"
     return md.render(this.content)
+}
+
+
+postSchema.methods.createdTimeStamp = function(){
+    var date = new Date(this.createdAt)
+    return date.toLocaleDateString()
+}
+
+postSchema.methods.updatedTimeStamp = function(){
+    var date = new Date(this.updatedAt)
+    return date.toLocaleDateString()
 }
 
 const postModel = mongoose.model('Posts', postSchema)

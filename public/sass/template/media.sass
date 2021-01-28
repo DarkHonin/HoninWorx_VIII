@@ -1,0 +1,38 @@
+#media
+    .body
+        list-style: none
+        li
+            display: flex
+            justify-content: space-between
+            &>div
+                display: flex
+                justify-content: space-between
+                
+            input
+                margin: auto
+                display: block
+            .head
+                flex: 1
+                align-items: flex-start
+                flex-direction: column
+                justify-content: flex-start
+                .title
+                    margin: 0em
+                    font-size: 1.5em
+            .thumbnail
+                img
+                    height: 150px
+                    width: auto
+                    display: block
+                    margin: auto
+            
+        .lonely
+            display: none
+        input[type='radio']:checked ~ .lonely
+            display: flex
+        input[type='radio']
+            display: none
+        .select
+            display: none
+        input[type='radio']:checked + .select
+            display: flex

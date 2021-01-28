@@ -1,7 +1,15 @@
 *
     color: white
     font-family: monospace
-    
+
+@import "../fontawesome/scss/fontawesome.scss"
+@import "../fontawesome/scss/solid.scss"
+@import "../fontawesome/scss/brands.scss"
+
+@import template/buttons.sass
+@import template/container.sass
+@import template/media.sass
+
 html
     background-color: #101113
     
@@ -18,6 +26,7 @@ body
         overflow-y: auto
 
 #mainContainer
+    margin: 0em
     display: flex
     flex-direction: row
     align-items: stretch
@@ -33,6 +42,6 @@ header
 footer
     border-top: 2px solid grey
 
-@import template/buttons.sass
+
 
 @import article.sass

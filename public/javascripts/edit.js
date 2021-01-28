@@ -40,7 +40,7 @@ save.addEventListener("click", (e) => {
 
     var data = {        
         title : titleEdit.value, 
-        note : noteEdit.value
+        content : noteEdit.value
     }
 
     commonNet.fetch_middleware(window.location, data).then(window.location = window.location)
