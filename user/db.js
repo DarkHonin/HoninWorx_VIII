@@ -34,6 +34,18 @@ userSchema.methods.login = async function(password){
     })
 }
 
+userSchema.statics.setPassword = async function(password){
+    return new Promise((resolve, reject) => {
+        // generate random 16 bytes long salt
+        const salt = crypto.randomBytes(16).toString("hex")
+
+        crypto.scrypt(password, salt, 64, (err, derivedKey) => {
+            if (err) reject(err);
+            resolve(salt + ":" + derivedKey.toString('hex'))
+        });
+    }).then(hash => this.hash = hash).save()
+}
+
 userSchema.statics.createUser = async function({username, password, meta = {}, role}){
     return new Promise((resolve, reject) => {
         // generate random 16 bytes long salt

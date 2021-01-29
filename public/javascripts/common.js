@@ -46,3 +46,9 @@ clearMedia.addEventListener('click', (click) => {
     for(var i=0;i<ele.length;i++)
     ele[i].checked = false;
 })
+
+document.querySelectorAll("[data-href]").forEach(e => {
+    e.addEventListener('click', () => {
+        window.location = e.getAttribute('data-href')
+    })
+})
