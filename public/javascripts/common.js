@@ -39,3 +39,10 @@ function onTelegramAuth(user) {
             document.cookie = `tg_user=${JSON.stringify(user)}`
     });
 }
+
+const clearMedia = document.querySelector('[data-clear-select]')
+clearMedia.addEventListener('click', (click) => {
+    var ele = document.getElementsByName("media");
+    for(var i=0;i<ele.length;i++)
+    ele[i].checked = false;
+})
