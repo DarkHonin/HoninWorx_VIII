@@ -10,7 +10,7 @@ const {userRouter} = require('./router')
 
 
 module.exports = (app, {enable_link_login = false}) => {
-    app.use('/', userRouter)
+    app.use('/u', userRouter)
     if(enable_link_login){
         // console.log("Anon link router enabled")
         

@@ -3,6 +3,9 @@ var userRouter = express.Router();
 var {userModel} = require('./db')
 const {jwtMiddleware, setJWT, clearJWT} = require('../common/jwt')
 
+
+const urlPrefix = '/u'
+
 const captchaUrl = '/captcha.jpg';
 const captchaMathUrl = '/captcha_math.jpg';
 const captchaSessionId = 'captcha';
@@ -23,7 +26,7 @@ userRouter.get('/', (req, res) => {
     if(res.jwt.user)
         res.render('user/index', {user : res.jwt.user.body})
     else
-        res.render('user/login', {captcha : {name : captchaFieldName, url : captchaUrl}})
+        res.render('user/login', {captcha : {name : captchaFieldName, url : urlPrefix+captchaUrl}})
 })
 
 userRouter.post('/', (req, res) => {
