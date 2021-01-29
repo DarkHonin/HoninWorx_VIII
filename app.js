@@ -9,7 +9,6 @@ var db_init = require('./common/db')
 var app = express();
 const session = require('express-session');
 
-var userTech = require('./user/index')
 
 var {jwtMiddleware} = require('./common/jwt')
 
@@ -53,11 +52,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 db_init()
 
 // Routers:::
-userTech(app, {enable_link_login : true})
 
-app.use('/', indexRouter);
-
-app.use('/post', postRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
