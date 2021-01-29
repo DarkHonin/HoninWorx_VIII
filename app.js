@@ -4,14 +4,12 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var sassMiddleware = require('node-sass-middleware');
+var 
 
-var indexRouter = require('./routes/index');
-var postRouter = require('./post/router')
 var db_init = require('./common/db')
 var app = express();
 const session = require('express-session');
 
-var userTech = require('./user/index')
 
 var {jwtMiddleware} = require('./common/jwt')
 
@@ -52,17 +50,10 @@ app.use(sassMiddleware({
 }));
 
 app.use(express.static(path.join(__dirname, 'public')));
+db_init()
 
-userTech(app, {enable_link_login : true})
+// Routers:::
 
-
-// abstractUserModel.has_admin().then(has => has ? console.log("Admin user already exists") : createUser("default_admin", 'password', 'admin')) /// Incase of lockout
-
-
-
-app.use('/', indexRouter);
-
-app.use('/post', postRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

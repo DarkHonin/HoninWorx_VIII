@@ -1,0 +1,19 @@
+#user {
+  border: 1px solid blue; }
+  #user .container {
+    margin: auto;
+    width: 250px; }
+  #user input {
+    color: black;
+    font-size: 1.2em;
+    margin: .2em auto; }
+  #user .captcha {
+    display: flex;
+    flex-direction: column;
+    margin: auto; }
+    #user .captcha img {
+      max-height: 100px;
+      margin: 1em;
+      margin-bottom: .5em; }
+
+/*# sourceMappingURL=user.css.map */
