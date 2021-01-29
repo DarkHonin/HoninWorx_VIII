@@ -1,0 +1,14 @@
+extends ../template.pug
+
+block styles
+    link(rel="stylesheet", href="/stylesheets/user.css")
+
+block content
+    article#user
+        .container
+            .head
+                block user_menue_title
+                    p="user_menue_title"
+            .body
+                block user_menue_content
+                    div="user_menue_content"
