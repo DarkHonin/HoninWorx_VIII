@@ -34,7 +34,7 @@ userSchema.methods.login = async function(password){
     })
 }
 
-userSchema.statics.custom = async function({username, password, meta = {}, role}){
+userSchema.statics.createUser = async function({username, password, meta = {}, role}){
     return new Promise((resolve, reject) => {
         // generate random 16 bytes long salt
         const salt = crypto.randomBytes(16).toString("hex")
@@ -43,15 +43,15 @@ userSchema.statics.custom = async function({username, password, meta = {}, role}
             if (err) reject(err);
             resolve(salt + ":" + derivedKey.toString('hex'))
         });
-    }).then(hash => new abstractUserModel({uname : username, hash, meta, role}).save())
+    }).then(hash => new userModel({uname : username, hash, meta, role}).save())
 }
 
 userSchema.statics.has_admin = function(){
-    return abstractUserModel.findOne({role : "admin"}).then(admin => {
+    return userModel.findOne({role : "admin"}).then(admin => {
         return admin && admin.role === 'admin'
     })
 }
 
 const userModel = mongoose.model('user', userSchema)
 
-module.exports = {userSchema, userModel}
+module.exports = {userSchema, userModel, roles : abstractUser.role.enum}
