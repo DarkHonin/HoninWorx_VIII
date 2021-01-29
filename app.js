@@ -5,8 +5,6 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var sassMiddleware = require('node-sass-middleware');
 
-var indexRouter = require('./routes/index');
-var postRouter = require('./post/router')
 var db_init = require('./common/db')
 var app = express();
 const session = require('express-session');
@@ -52,13 +50,10 @@ app.use(sassMiddleware({
 }));
 
 app.use(express.static(path.join(__dirname, 'public')));
+db_init()
 
+// Routers:::
 userTech(app, {enable_link_login : true})
-
-
-// abstractUserModel.has_admin().then(has => has ? console.log("Admin user already exists") : createUser("default_admin", 'password', 'admin')) /// Incase of lockout
-
-
 
 app.use('/', indexRouter);
 
