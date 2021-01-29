@@ -1,0 +1,39 @@
+extends ../template.pug
+
+block styles
+    link(rel="stylesheet", href="/stylesheets/user.css")
+
+block content
+    article
+        .container
+            .head
+                .title User Page
+                .buttons
+                    label.button.hover(data-title='Create new:' for='userCreateMenue')
+                        i.fa.fa-plus
+            ul.body.list#userList
+                
+                input#userCreateMenue(type='radio' name='newUser')
+                li.select
+                    input#username(type='text', placeholder='Username')
+                    input#password(type='password', placeholder='password')
+                    select#role(data-title='Role')
+                        for i in roles
+                            option(value=i)=i
+                    .buttons
+                        .button#save.hover(data-title='Save')
+                            i.fa.fa-save
+                        .button.hover(data-clear-select='newUser' data-title='Cancel')
+                            i.fa.fa-minus
+                for u in users
+                    li.user(class=(u._id == currentUser._id ? 'active' : ''))
+                        .col.username=u.uname
+                        .col.role=u.role
+                        .buttons
+                            .button.hover(data-title='View' href='/u/'+u._id)
+                                i.fa.fa-eye
+                            .button.hover(data-title='Edit' href='/u/'+u._id+'/edit')
+                                i.fa.fa-cog
+
+block scripts
+    script(src="/javascripts/create_user.js")

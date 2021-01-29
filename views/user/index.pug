@@ -1,0 +1,15 @@
+extends ../template.pug
+
+block content
+    article
+        .container
+            .head
+                .title User Page
+                    if currentUser._id == user._id
+                        .minor Current User
+                .buttons
+                    .button.hover(data-title='Edit' href='/u/'+user._id+'/edit')
+                        i.fa.fa-cog
+            p.body
+                span=`Username: ${user.uname}`
+                span=`Role: ${user.role}`

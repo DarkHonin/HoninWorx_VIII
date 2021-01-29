@@ -1,0 +1,13 @@
+.lonely
+    display: none
+input[type='radio']:checked ~ .lonely
+    display: flex
+input[type='radio']
+    display: none
+input[type='radio'] + .select
+    display: none
+input[type='radio']:checked + .select
+    display: flex
+
+.minor
+    font-size: .5em
