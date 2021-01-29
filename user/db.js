@@ -27,9 +27,9 @@ const abstractUser = {
     }
   }
 
-const abstractUserSchema = new mongoose.Schema(abstractUser, { timestamps: true });
+const userSchema = new mongoose.Schema(abstractUser, { timestamps: true });
 
-abstractUserSchema.methods.identity = function(){
+userSchema.methods.identity = function(){
     var object = this.toObject();
     delete object.hash
     delete object.meta
@@ -37,7 +37,7 @@ abstractUserSchema.methods.identity = function(){
     return object
 }
 
-abstractUserSchema.methods.login = async function(password){
+userSchema.methods.login = async function(password){
     return new Promise((resolve, reject) => {
         const [salt, key] = this.hash.split(":")
         crypto.scrypt(password, salt, 64, (err, derivedKey) => {
@@ -47,7 +47,7 @@ abstractUserSchema.methods.login = async function(password){
     })
 }
 
-abstractUserSchema.statics.custom = async function({username, password, meta = {}, role}){
+userSchema.statics.custom = async function({username, password, meta = {}, role}){
     return new Promise((resolve, reject) => {
         // generate random 16 bytes long salt
         const salt = crypto.randomBytes(16).toString("hex")
@@ -59,12 +59,12 @@ abstractUserSchema.statics.custom = async function({username, password, meta = {
     }).then(hash => new abstractUserModel({uname : username, hash, meta, role}).save())
 }
 
-abstractUserSchema.statics.has_admin = function(){
+userSchema.statics.has_admin = function(){
     return abstractUserModel.findOne({role : "admin"}).then(admin => {
         return admin && admin.role === 'admin'
     })
 }
 
-const abstractUserModel = mongoose.model('user', abstractUserSchema)
+const userModel = mongoose.model('user', userSchema)
 
-module.exports = {abstractUserSchema, abstractUserModel, roles}
+module.exports = {userSchema, userModel, roles}

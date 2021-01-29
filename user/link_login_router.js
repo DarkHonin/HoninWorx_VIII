@@ -1,18 +1,11 @@
 var express = require('express');
 var linkRouter = express.Router();
-var {abstractUserModel} = require('../user/db')
+var {abstractUserModel} = require('./db')
 const {setJWT, jwtMiddleware} = require('../common/jwt')
 
 const config = require('../common/config')
 
 linkRouter.use(jwtMiddleware('user'))
-
-var {createUser} = require('./admin')
-
-linkRouter.get('/test', (req, res)=>{
-    createUser('Admin 1', 'password', 'admin').then(d => console.log(d)).then(res.redirect('/'))
-})
-
 
 linkRouter.use('/:hash', (req, res, next)=>{
     const oid = req.params.hash
