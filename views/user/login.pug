@@ -14,6 +14,7 @@ block user_menue_content
             img(src=captcha.url)
             input#captcha(type='text' name=captcha.name)
         input#submit(type='submit')
+        input#csrf(type='hidden' value=token)
 
 block scripts
     script(src="/javascripts/login.js")
