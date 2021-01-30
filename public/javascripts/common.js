@@ -42,12 +42,13 @@ function onTelegramAuth(user) {
     });
 }
 
-const clearMedia = document.querySelector('[data-clear-select]')
-clearMedia.addEventListener('click', (click) => {
-    var ele = document.getElementsByName("media");
-    for(var i=0;i<ele.length;i++)
-    ele[i].checked = false;
-})
+const clearMedia = document.querySelectorAll('[data-clear-select]').forEach(e => 
+        e.addEventListener('click', (click) => {
+            var ele = document.getElementsByName(e.getAttribute('data-clear-select'));
+            for(var i=0;i<ele.length;i++)
+            ele[i].checked = false;
+        })
+    )
 
 document.querySelectorAll("[data-href]").forEach(e => {
     e.addEventListener('click', () => {
