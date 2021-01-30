@@ -18,14 +18,16 @@ const commonNet = {
         
     },
 
-    fetch_middleware: (url, data)=>{
+    fetch_middleware: (url, data, h = {})=>{
         const sdata = JSON.stringify(data)
         console.log(url, sdata)
 
         return fetch(url, {
             method : data ? "post" : "get",
+            credentials: 'same-origin',
             headers : {
-                "Content-Type" : "application/json"
+                "Content-Type" : "application/json",
+                ...h
             },
             body : sdata ? sdata : undefined
         }).then(r=> r.json())
