@@ -3,6 +3,7 @@ var userRouter = express.Router();
 var {userModel, roles} = require('./db')
 const {jwtMiddleware, setJWT, clearJWT} = require('../common/jwt')
 const {requireUser, requireAdmin} = require('./middleware')
+var csrf = require('../common/csrf')
 
 const captchaUrl = '/captcha.jpg';
 const captchaMathUrl = '/captcha_math.jpg';
@@ -21,15 +22,15 @@ userRouter.get('/logout', (req, res) => {
     res.redirect('/')
 })
 
-userRouter.get('/login', (req, res) => {
+userRouter.get('/login', csrf, (req, res) => {
     if(res.jwt.user)
-        res.redirect(req.ref)
+        return res.redirect(req.header('Referer'))
     else
-        res.render('user/login', {captcha : {name : 'captcha', url : '/u'+captchaUrl}})
+        return res.render('user/login', {captcha : {name : 'captcha', url : '/u'+captchaUrl}, token : req.csrfToken()})
 })
 
 
-userRouter.post('/login', (req, res) => {
+userRouter.post('/login', csrf , (req, res) => {
     var {username, password} = req.body
     if(!captcha.check(req, req.body['captcha'])){
         res.json({status : false, message : "Invalid captcha"})
