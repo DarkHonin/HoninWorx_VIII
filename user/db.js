@@ -3,26 +3,13 @@ var mongoose = require('mongoose')
 const db = mongoose.connection
 const crypto = require('crypto')
 
-
-const roles = {
-    visitor : ['view'],
-    admin : ['view', 'edit']
-}
-
-var can = (user, action) => {
-    console.log(user)
-    return roles[user.role].includes(action)
-}
-
-roles.can = can
-
 const abstractUser = {
     uname : {type: String, required : true},
     hash : String,
     meta : {},
     role : {
         type : String,
-        enum : ['visitor', 'admin'],
+        enum : ['user', 'admin'],
         default : 'visitor'
     }
   }
@@ -47,7 +34,7 @@ userSchema.methods.login = async function(password){
     })
 }
 
-userSchema.statics.custom = async function({username, password, meta = {}, role}){
+userSchema.statics.setPassword = async function(password){
     return new Promise((resolve, reject) => {
         // generate random 16 bytes long salt
         const salt = crypto.randomBytes(16).toString("hex")
@@ -56,15 +43,27 @@ userSchema.statics.custom = async function({username, password, meta = {}, role}
             if (err) reject(err);
             resolve(salt + ":" + derivedKey.toString('hex'))
         });
-    }).then(hash => new abstractUserModel({uname : username, hash, meta, role}).save())
+    }).then(hash => this.hash = hash).save()
+}
+
+userSchema.statics.createUser = async function({username, password, meta = {}, role}){
+    return new Promise((resolve, reject) => {
+        // generate random 16 bytes long salt
+        const salt = crypto.randomBytes(16).toString("hex")
+
+        crypto.scrypt(password, salt, 64, (err, derivedKey) => {
+            if (err) reject(err);
+            resolve(salt + ":" + derivedKey.toString('hex'))
+        });
+    }).then(hash => new userModel({uname : username, hash, meta, role}).save())
 }
 
 userSchema.statics.has_admin = function(){
-    return abstractUserModel.findOne({role : "admin"}).then(admin => {
+    return userModel.findOne({role : "admin"}).then(admin => {
         return admin && admin.role === 'admin'
     })
 }
 
 const userModel = mongoose.model('user', userSchema)
 
-module.exports = {userSchema, userModel, roles}
+module.exports = {userSchema, userModel, roles : abstractUser.role.enum}

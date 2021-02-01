@@ -15,6 +15,11 @@ html(lang="en")
                     span About
                 a.button(href='/contact')
                     span Contact
+                if currentUser
+                    a.button.hover(href='/u/logout')
+                        span Logout
+                        span.minor=currentUser.uname
+
         .container#mainContainer
             block content
         footer

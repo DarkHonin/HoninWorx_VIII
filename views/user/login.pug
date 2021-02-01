@@ -4,13 +4,17 @@ block user_menue_title
     h1 Login
 
 block user_menue_content
-    form.container(method='post' target='./' content-type='application/json')
+    .container
         label Username:
-        input(type='username' name='username')
+        input#username(type='username' name='username')
         label Password:
-        input(type='password' name='password')
+        input#password(type='password' name='password')
         .captcha
             label Captcha:
             img(src=captcha.url)
-            input(type='text' name=captcha.name)
-        input(type='submit')
+            input#captcha(type='text' name=captcha.name)
+        input#submit(type='submit')
+        input#csrf(type='hidden' value=token)
+
+block scripts
+    script(src="/javascripts/login.js")

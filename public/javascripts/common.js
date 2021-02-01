@@ -18,14 +18,16 @@ const commonNet = {
         
     },
 
-    fetch_middleware: (url, data)=>{
+    fetch_middleware: (url, data, h = {})=>{
         const sdata = JSON.stringify(data)
         console.log(url, sdata)
 
         return fetch(url, {
             method : data ? "post" : "get",
+            credentials: 'same-origin',
             headers : {
-                "Content-Type" : "application/json"
+                "Content-Type" : "application/json",
+                ...h
             },
             body : sdata ? sdata : undefined
         }).then(r=> r.json())
@@ -39,3 +41,17 @@ function onTelegramAuth(user) {
             document.cookie = `tg_user=${JSON.stringify(user)}`
     });
 }
+
+const clearMedia = document.querySelectorAll('[data-clear-select]').forEach(e => 
+        e.addEventListener('click', (click) => {
+            var ele = document.getElementsByName(e.getAttribute('data-clear-select'));
+            for(var i=0;i<ele.length;i++)
+            ele[i].checked = false;
+        })
+    )
+
+document.querySelectorAll("[data-href]").forEach(e => {
+    e.addEventListener('click', () => {
+        window.location = e.getAttribute('data-href')
+    })
+})
