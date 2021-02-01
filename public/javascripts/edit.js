@@ -51,7 +51,7 @@ create_post.addEventListener('click', (e) => {
         title : titleEdit.value,
         content : noteEdit.value
     }
-    commonNet.fetch_middleware(window.location, data).then( j => window.location = `/post/${j.postID}`)
+    commonNet.fetch_middleware(window.location, data).then( j => window.location = `/p/${j.postID}`)
 })
 
 del.addEventListener('click', (e) => {

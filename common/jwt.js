@@ -15,15 +15,16 @@
  * renewJWT(    ExpressRequest req, ExpressResponce res, String cookieName )    ~   Validates the existing cookie before setting it anew
  */
 
+const base64url = require('base64url')
 const crypto = require("crypto")
 
 function setJWT(res, cookieName, data){
     const secretHash = crypto.createHash('sha256').update(process.env.jwt_token).digest()
     var cookie = [
-        Buffer.from(JSON.stringify({
+        base64url(Buffer.from(JSON.stringify({
             'alg' : 'sha256',
             'typ' : 'jwt'
-        })).toString('base64'),
+        })).toString()),
         Buffer.from(JSON.stringify(data)).toString('base64')
     ]
     const dataHash = crypto.createHmac('sha256', secretHash).update(JSON.stringify(cookie)).digest('hex')
@@ -44,7 +45,7 @@ function getJWT(req, cookieName){
     var parts = cookie.split('.')
     if(parts.length < 3) return false
     var hash = parts.pop()
-    return {head : Buffer.from(parts[0], 'base64').toString('ascii'), body : JSON.parse(Buffer.from(parts[1], 'base64').toString('ascii')), hash, predigest : JSON.stringify(parts)}
+    return {head : base64url.decode(parts[0]), body : JSON.parse(Buffer.from(parts[1], 'base64').toString('ascii')), hash, predigest : JSON.stringify(parts)}
 }
 
 function verifyJWT(req, cookieName){

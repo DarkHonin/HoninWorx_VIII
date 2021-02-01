@@ -5,13 +5,10 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var sassMiddleware = require('node-sass-middleware');
 
-var indexRouter = require('./routes/index');
-var postRouter = require('./post/router')
 var db_init = require('./common/db')
 var app = express();
 const session = require('express-session');
 
-var userTech = require('./user/index')
 
 var {jwtMiddleware} = require('./common/jwt')
 
@@ -52,17 +49,14 @@ app.use(sassMiddleware({
 }));
 
 app.use(express.static(path.join(__dirname, 'public')));
+db_init()
 
-userTech(app, {enable_link_login : true})
+const postRouter = require('./post/router')
 
+// Routers:::
 
-// abstractUserModel.has_admin().then(has => has ? console.log("Admin user already exists") : createUser("default_admin", 'password', 'admin')) /// Incase of lockout
+app.use('/p', postRouter)
 
-
-
-app.use('/', indexRouter);
-
-app.use('/post', postRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -72,6 +66,8 @@ app.use(function(req, res, next) {
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
+  console.log(err.message)
+  return res.json(err)
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
