@@ -3,6 +3,8 @@ var router = express.Router();
 var {ObjectId} = require('mongoose').Types
 var {postModel, md} = require('./db')
 
+var restSchema = require('../common/restSchema')
+
 router.get('/', (req, res) => {
     res.render('posts/edit', {focus : new postModel({title : "demo", content : "# THIS IS a HEADER"})})
 })
@@ -48,9 +50,18 @@ router.get('/:postID/edit', (req, res) => {
     res.render('posts/edit', {focus : res.target})
 })
 
-router.post('/:postID/edit', (req, res) => {
+router.post('/:postID/edit', restSchema({
+    title : {
+        required: true,
+        type : String
+    },
+    content : {
+        required: true,
+        type : String
+    }
+}), (req, res) => {
     var setting = req.body
-    console.log(setting)
+    console.log('Inbound: ', setting)
     res.target.title = setting.title
     res.target.content = setting.content
     console.log(res.target)

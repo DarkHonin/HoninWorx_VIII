@@ -9,7 +9,7 @@ module.exports = (schema) => {
         var valid = false
 
         schemaFields.forEach(e =>{
-            var type = schema[e].type ? schema[e].type : typeof(schema[e]())
+            var type = schema[e].type ? typeof(schema[e].type()) : typeof(schema[e]())
             var required = schema[e].required
             var test = schema[e].test
 
@@ -21,7 +21,7 @@ module.exports = (schema) => {
             if(missing) return next({status : 0, message : `Paramater is missing: ${e}`})
             if(!valid) return next({status : 0, message : `Invalid paramater: ${e}`})
         })
-
+        
         if(missing | !valid) return
         next()
     }
