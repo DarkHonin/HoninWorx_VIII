@@ -61,10 +61,8 @@ router.post('/:postID/edit', restSchema({
     }
 }), (req, res) => {
     var setting = req.body
-    console.log('Inbound: ', setting)
     res.target.title = setting.title
     res.target.content = setting.content
-    console.log(res.target)
     res.target.save().then(d => res.json({status : 1, postID : d._id}))
 })
 
