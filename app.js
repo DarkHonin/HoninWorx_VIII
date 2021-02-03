@@ -30,7 +30,7 @@ app.use(cookieParser());
 
 app.use(
   session({
-      secret: 'C0AB33339D6A58F72C654401FEFF5CA24BB785C4AB2EE02EE292D3F2C43D9339',
+      secret: process.env.session_secret,
       resave: false,
       saveUninitialized: true
   })
@@ -52,9 +52,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 db_init()
 
 // Routers:::
-var {usersRouter} = require('./user/router')
+var {usersRouter, jwtCapture} = require('./user/router')
+var postRouter = require('./post/router')
+
+app.use(jwtCapture)
 
 app.use(usersRouter)
+app.use('/p',postRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
