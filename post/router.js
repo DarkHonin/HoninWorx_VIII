@@ -25,6 +25,9 @@ router.post('/', (req, res) => {
 })
 
 
+router.post('/markdown', (req, res) => {
+    res.json({payload: md.render(req.body.md)})
+})
 
 router.use('/:postID', (req, res, next) => {
     var oid = req.params['postID']
@@ -39,7 +42,7 @@ router.use('/:postID', (req, res, next) => {
 })
 
 router.post('/:postID/markdown', (req, res) => {
-    res.json({payload: md.render(req.body.md)})
+    res.json({payload: res.target.markdown()})
 })
 
 router.get('/:postID', (req, res) => {

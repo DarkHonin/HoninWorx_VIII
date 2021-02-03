@@ -19,7 +19,7 @@ noteEdit.addEventListener('keyup', e => {
     }
     timer = setTimeout(() => {
         console.log(e.target.value)
-        commonNet.fetch_middleware(`markdown`, {md : noteEdit.value}).then(data => notePreview.innerHTML = data.payload)
+        commonNet.fetch_middleware(`/p/markdown`, {md : noteEdit.value}).then(data => notePreview.innerHTML = data.payload)
     }, 500)
 })
 
