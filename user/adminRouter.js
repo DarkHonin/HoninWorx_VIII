@@ -9,7 +9,7 @@ adminRouter.use(requireAdmin)
 
 adminRouter.get('/', (req, res)=>{
     userModel.find({}).then((ds) => {
-        res.render('user/list', {currentUser : res.jwt.user.body, users : ds, roles})
+        res.render('user/list', {users : ds, roles})
     })
 })
 
@@ -27,7 +27,7 @@ adminRouter.post('/create_user', restSchema(
 
 adminRouter.get('/:userID', (req, res) => {
     userModel.findById(req.params.userID).catch(err=>res.json({status: 0, message : err})).then(d => {
-        res.render('user/index', {user : d.identity(), currentUser : res.jwt.user.body})
+        res.render('user/index', {user : d.identity()})
     })
 })
 

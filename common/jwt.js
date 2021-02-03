@@ -71,13 +71,14 @@ function renewJWT(req, res, cookieName ){
     return true
 }
 
-function jwtMiddleware(cookieName){
+function jwtMiddleware(cookieName, setter = (res) => {}){
   return (req, res, next) => {
     if(!res.jwt) res.jwt = {[cookieName] : verifyJWT(req, cookieName)}
     else res.jwt[cookieName] = verifyJWT(req, cookieName)
+    if(setter) setter(res, res.jwt[cookieName].body);
     next()
 }
 }
 
 
-module.exports ={setJWT, verifyJWT, jwtMiddleware, renewJWT, clearJWT}
+module.exports ={getJWT, setJWT, verifyJWT, jwtMiddleware, renewJWT, clearJWT}
