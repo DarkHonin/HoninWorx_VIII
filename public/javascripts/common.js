@@ -31,6 +31,15 @@ const commonNet = {
             },
             body : sdata ? sdata : undefined
         }).then(r=> r.json())
+    },
+
+    fetchForm_middleware : (url, data, h)=>{
+        var form = new FormData();
+        Object.keys(data).forEach(k => form.set(k, data[k]))
+        fetch(url, {
+            method: "post",
+            body : form
+        }).then(r => r.json())
     }
 }
 
