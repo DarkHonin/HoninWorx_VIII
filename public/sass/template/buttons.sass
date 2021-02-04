@@ -13,11 +13,16 @@
         &:hover::before
             display: block
             opacity: 1
-    &>[data-title]:before
-        position: absolute
-        right: 100%
-        content: attr(data-title)
-        white-space: nowrap
+    &>[data-title]
+        &:before
+            position: absolute
+            right: 100%
+            content: attr(data-title)
+            white-space: nowrap
+        &.main::before
+            right: unset
+            left: 100%
+            margin-left: .5em
         
     &>[data-href]
         cursor: pointer
@@ -36,3 +41,5 @@
         justify-self: flex-start
         margin: auto
         margin-left: 1em
+        position: relative
+            
