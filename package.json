@@ -21,8 +21,6 @@
     "express": "~4.16.1",
     "express-mongodb": "0.0.4",
     "express-session": "^1.17.1",
-    "googleapis": "^67.0.0",
-    "googlephotos": "^0.3.3",
     "http-errors": "~1.6.3",
     "jstransformer-coffee-script": "^1.1.1",
     "jstransformer-markdown-it": "^2.1.0",
@@ -33,7 +31,6 @@
     "mysql": "^2.18.1",
     "node-sass-middleware": "0.11.0",
     "pug": "2.0.0-beta11",
-    "react-markdown": "^5.0.3",
     "svg-captcha-express": "^1.0.8"
   },
   "main": "app.js",

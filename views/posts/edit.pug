@@ -4,8 +4,9 @@ block content
     article
         .container#tools
             .head.buttons
-            
-                div.button
+                .button.main
+                        i.fas.fa-plus
+                .button
                     span#save
                         i.fas.fa-save
                     span#delete
@@ -20,9 +21,9 @@ block content
             span.head
                 span.title=focus.title
                 div.buttons
-                    span.hover(data-title=`Created: ${focus.createdTimeStamp()}`)
+                    .button.hover(data-title=`Created: ${focus.createdTimeStamp()}`)
                         i.fas.fa-hourglass-start
-                    span.hover(data-title=`Updated: ${focus.updatedTimeStamp()}`)
+                    .button.hover(data-title=`Updated: ${focus.updatedTimeStamp()}`)
                         i.fas.fa-hourglass-start
             div.body!=focus.markdown()
         .container#media
@@ -34,38 +35,45 @@ block content
                     label.button.hover(data-title='Link Video' for='videoArchive')
                         i.fas.fa-link
             ul.body
-                li
-                    input(type='radio' name='media' id='imageUpload') 
-                    .select
-                        input.title(type='text' placeholder='Media title:')
-                        input.file(type='file')
+                li#mediaSelect
+                    input#imageUpload(type='radio' name='media' value='img') 
+                    .select.img
+                        .meta
+                            .name
+                            .type
+                            .size
+                            
+                        input#fileSelect.file(type='file' style='display: none')
+                        .thumbnail(data-title='Select Media...')
+                            img
 
-                    input(type='radio' name='media' id='videoArchive') 
-                    .select
-                        input.title(type='text' placeholder='Video id: ')
+                    input(type='radio' name='media' id='videoArchive' value='vid') 
+                    .select.vid
+                        input.id(type='text' placeholder='Video id: ')
+                        
 
-                    .buttons.lonely
-                        .button(data-clear-select='media')
+                    .buttons.lonely.head
+                        .button.cancel(data-clear-select='media')
                             i.fas.fa-minus
-                        .button(data-clear-select='media')
-                            i.fas.fa-plus
+                        .button.submit(data-clear-select='media')
+                            i.fas.fa-save
 
                 li
-                    .head
-                        span.title HeckenImg Title
-                        span='https://i.ibb.co/fnLvNwH/IMG-20210110-161429.jpg'
+                    .body
+                        .head
+                            span.title HeckenImg Title
+                        span.minor='https://i.ibb.co/fnLvNwH/IMG-20210110-161429.jpg'
                     .thumbnail
                         img(src='https://i.ibb.co/fnLvNwH/IMG-20210110-161429.jpg')
                 li
                     .head
-                        span.title
-                        span='BlastOfCas[Stream Paint]'
+                        .title='BlastOfCas[Stream Paint]'
+                    .body
                     .thumbnail
                         img(src='https://i.ytimg.com/vi/jO-iPpdOVHI/hqdefault.jpg')
 
 
 block scripts
-    script(src="/javascripts/common.js")
     script(src="/javascripts/search.js")
     script(src="/javascripts/list.js")
     script(src="/javascripts/edit.js")
