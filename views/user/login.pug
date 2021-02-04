@@ -17,4 +17,5 @@ block user_menue_content
         input#csrf(type='hidden' value=token)
 
 block scripts
+    script=`const captchaRefreshUrl = '${captcha.url}'`
     script(src="/javascripts/login.js")
