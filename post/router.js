@@ -29,6 +29,10 @@ router.post('/markdown', (req, res) => {
     res.json({payload: md.render(req.body.md)})
 })
 
+router.post('/upload', (req, res) => {
+    res.redirect(307, `https://api.imgbb.com/1/upload?key=${process.env.imgdd_key}`)
+})
+
 router.use('/:postID', (req, res, next) => {
     var oid = req.params['postID']
     if(oid && ObjectId.isValid(oid)){
