@@ -33,13 +33,13 @@ userRouter.get('/login', csrf, (req, res) => {
 userRouter.post('/login', csrf , (req, res) => {
     var {username, password} = req.body
     if(!captcha.check(req, req.body['captcha'])){
-        res.json({status : false, message : "Invalid captcha"})
+        res.json({status : false, error : "INVALID_CAPTCHA", message : "Invalid captcha"})
     }else
     userModel.findOne({uname : username}).then(user => {
-        if(!user) throw res.json({'status' : false, message : "invalid username/password"})
+        if(!user) throw res.json({'status' : false, error : "INVALID_CRED", message : "Invalid username/password"})
         else user.login(password).then(login => {
             if(!login)
-                throw res.json({'status' : false, message : "invalid username/password"})
+                throw res.json({'status' : false,error : "INVALID_CRED", message : "Invalid username/password"})
             else{
                 setJWT(res, 'user', user.identity())
                 res.json({'status' : 1})
