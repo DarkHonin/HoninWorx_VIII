@@ -20,8 +20,7 @@ router.use('/:postID', (req, res, next) => {
     if(oid && ObjectId.isValid(oid)){
         postModel.findById(oid).then((d) => {
             if(!d) res.json({status: 0, messahge :`Invalid post ID: ${oid}`})
-            res.target = d
-            next()
+            res.render('posts/post', {focus : d})
         })
     }else
         res.json({status: 0, messahge :`Invalid post ID: ${oid}`})
