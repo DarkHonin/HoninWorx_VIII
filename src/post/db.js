@@ -15,8 +15,22 @@ const md = new MarkdownIt().use(markdownItAttrs, {
 const mediaSchema = new mongoose.Schema({
     type : {type: String, enum : ['img', 'video'] },
     title : String,
-    thumbnail : String
+    thumbnail : String,
+    url : String,
+    meta : {}
   }, { timestamps: true });
+
+  mediaSchema.methods.createdTimeStamp = function(){
+    var date = new Date(this.createdAt)
+    return date.toLocaleDateString()
+}
+
+mediaSchema.methods.updatedTimeStamp = function(){
+    var date = new Date(this.updatedAt)
+    return date.toLocaleDateString()
+}
+
+
 
 const mediaModel = mongoose.model('Media', mediaSchema)
 

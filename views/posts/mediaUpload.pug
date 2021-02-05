@@ -1,0 +1,21 @@
+extends ../template.pug
+
+block content
+    article
+        .container#mediaUpload
+            span.head
+                input(type='text').title
+                div.buttons
+                    .button.hover.upload(data-title=`Upload`)
+                        i.fas.fa-upload
+            input.file(type="file")
+            ul.meta
+                li.filename
+                li.size
+                li.mime
+            
+            img.preview
+
+block scripts
+    script(src="/javascripts/spider.js")
+    script(src="/javascripts/media/upload.js")

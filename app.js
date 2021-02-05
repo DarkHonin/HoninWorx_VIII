@@ -5,14 +5,12 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var sassMiddleware = require('node-sass-middleware');
 
-var db_init = require('./common/db')
+var db_init = require('./src/common/db')
 var app = express();
 const session = require('express-session');
 
 
-var {jwtMiddleware} = require('./common/jwt')
-
-const config = require('./common/config') 
+const config = require('./src/common/config') 
 app.locals.env = config
 
 // Body parser
@@ -52,13 +50,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 db_init()
 
 // Routers:::
-var {usersRouter, jwtCapture} = require('./user/router')
-var postRouter = require('./post/router')
+var {usersRouter, jwtCapture} = require('./src/user/router')
+var postRouter = require('./src/post/router')
 
 app.use(jwtCapture)
 
 app.use(usersRouter)
-app.use('/p',postRouter)
+app.use('/', postRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

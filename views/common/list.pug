@@ -1,0 +1,10 @@
+ul.list.body(class={type: listType})
+    for item in list
+        if listType == 'inline'
+            if type=='post'
+                include listItems/inline_post.pug
+            if type=='user'
+                include listItems/inline_user.pug
+            if type=='media'
+                include listItems/inline_media.pug
+            

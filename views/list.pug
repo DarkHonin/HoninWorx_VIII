@@ -1,0 +1,20 @@
+extends template.pug
+
+block styles
+    link(rel="stylesheet", href="/stylesheets/style2.css")
+block content
+    article
+     .container
+            .head
+                .title=title
+                .buttons
+                    if currentUser && currentUser.role === 'admin'
+                        .button.hover#newPost(data-title='Create new' data-href='create')
+                            i.fas.fa-plus
+            include common/list.pug
+                        
+block scripts
+    script(src="/javascripts/common.js")
+    script(src="/javascripts/search.js")
+    script(src="/javascripts/list.js")
+    script(src="/javascripts/edit.js")

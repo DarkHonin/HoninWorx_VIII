@@ -36,7 +36,7 @@ const commonNet = {
     fetchForm_middleware : (url, data, h)=>{
         var form = new FormData();
         Object.keys(data).forEach(k => form.set(k, data[k]))
-        fetch(url, {
+        return fetch(url, {
             method: "post",
             body : form
         }).then(r => r.json())
@@ -64,3 +64,14 @@ document.querySelectorAll("[data-href]").forEach(e => {
         window.location = e.getAttribute('data-href')
     })
 })
+
+const items = document.querySelectorAll('.mediaView .item')
+items[0].classList.add('visible')
+setInterval(() => {
+    items.forEach(e=> {
+        e.classList.remove('visible')
+    })
+    let i = Math.round(Math.random() * (items.length - 1))
+    console.log(i)
+    items[i].classList.add('visible')
+}, 10000)

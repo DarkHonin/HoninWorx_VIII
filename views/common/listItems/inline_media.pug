@@ -1,0 +1,13 @@
+li.media
+    .head
+        .title=item.title
+        .buttons
+            .button.hover(data-title='View' data-href='/m/'+item._id)
+                i.fa.fa-eye
+            if currentUser && currentUser.role == 'admin'
+                .button.hover(data-title='Edit' data-href='/m/'+item._id+'/e')
+                    i.fa.fa-cog
+                .button.hover(data-title='Delete' data-href='/m/'+item._id+'/e/delete')
+                    i.fa.fa-trash
+    .thumbnail.body
+        img(src=item.thumbnail)

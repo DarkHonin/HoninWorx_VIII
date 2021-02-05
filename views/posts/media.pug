@@ -1,0 +1,13 @@
+extends ../template.pug
+
+block content
+    article
+        .container#display
+            span.head
+                span.title=focus.title
+                div.buttons
+                    .button.hover(data-title=`Created: ${focus.createdTimeStamp()}`)
+                        i.fas.fa-hourglass-start
+                    .button.hover(data-title=`Delete` data-href=`/p/m/${focus._id}/d`)
+                        i.fas.fa-trash
+            img.body(src=focus.meta.src)

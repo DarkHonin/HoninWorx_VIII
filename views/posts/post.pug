@@ -6,16 +6,20 @@ block content
             span.head
                 span.title=focus.title
                 div.buttons
-                    span.hover(data-title=`Created: ${focus.createdTimeStamp()}`)
+                    .hover(data-title=`Updated: ${focus.updatedTimeStamp()}`)
                         i.fas.fa-hourglass-start
-                    span.hover(data-title=`Updated: ${focus.updatedTimeStamp()}`)
-                        i.fas.fa-hourglass-start
+                    if currentUser && currentUser.role == 'admin'
+                        .button.hover(data-title='Edit' data-href='/p/'+focus._id+'/e')
+                            i.fa.fa-cog
             div.body!=focus.markdown()
         .container#media
             span.head
                 span.title='Media:'
-            div.body='Nothing yet...'
-                        
+            include ../common/list.pug
+        .mediaView
+            for m in focus.media
+                if(m.type == undefined || m.type == 'img')
+                    .item(style=`background-image: URL(${m.url})`)
 block scripts
     script(src="/javascripts/common.js")
     script(src="/javascripts/search.js")

@@ -69,22 +69,18 @@ block content
                                 i.fas.fa-minus
                             .button.submit(data-clear-select='media')
                                 i.fas.fa-save
-
-                    li
-                        .body
-                            .head
-                                span.title HeckenImg Title
-                            span.minor='https://i.ibb.co/fnLvNwH/IMG-20210110-161429.jpg'
-                        .thumbnail
-                            img(src='https://i.ibb.co/fnLvNwH/IMG-20210110-161429.jpg')
-                    li
-                        .head
-                            .title='BlastOfCas[Stream Paint]'
-                        .body
-                        .thumbnail
-                            img(src='https://i.ytimg.com/vi/jO-iPpdOVHI/hqdefault.jpg')
-
-
+                    for m in focus.media
+                        li(id=m._id)
+                            .body
+                                .head
+                                    .title=m.title
+                                span.minor=m.url
+                            .thumbnail
+                                img(src=m.thumbnail)
+            .mediaView
+                for m in focus.media
+                    if(m.type == undefined || m.type == 'img')
+                        .item(style=`background-image: URL(${m.url})`)
 block scripts
     script(src="/javascripts/search.js")
     script(src="/javascripts/list.js")

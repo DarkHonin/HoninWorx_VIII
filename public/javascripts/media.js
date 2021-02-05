@@ -33,7 +33,6 @@ function component(base, structure){
 const mediaSelector = new component('#mediaSelect', { 
     
     'img' : [
-        'title',
         'file',
         {
             'meta' : [
@@ -64,8 +63,8 @@ mediaSelector.img.file.addEventListener('input', (e) => {
     console.log(files)
     if(!(files && files[0])) return
     payload.set('img', files[0])
-    payload.set('name', mediaSelector.img.meta.name.textContent = files[0].name )
-    mediaSelector.img.meta.size.textContent = files[0].size/1024
+    payload.set('name', (() => {return mediaSelector.img.meta.name.textContent = files[0].name})() )
+    mediaSelector.img.meta.size.textContent = (files[0].size / (1024*1024)).toFixed(2)
     mediaSelector.img.meta.type.textContent = files[0].type
 
 
@@ -86,7 +85,16 @@ mediaSelector.buttons.submit.addEventListener('click', () => {
         case 'vid':
 
         case 'img':
-            commonNet.fetchForm_middleware(window.location+'/upload', payload)
+            commonNet.fetchForm_middleware('/p/a/upload', payload).then(j => {
+                let data = j.data
+                commonNet.fetch_middleware(window.location+'/media', {
+                    thumbnail : data.thumb.url,
+                    display : data.display_url,
+                    delete : data.delete_url,
+                    url : data.image.url,
+                    title : data.title
+                })
+            })
     }
 })
 

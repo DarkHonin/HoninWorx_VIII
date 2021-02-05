@@ -19,7 +19,7 @@ noteEdit.addEventListener('keyup', e => {
     }
     timer = setTimeout(() => {
         console.log(e.target.value)
-        commonNet.fetch_middleware(`/p/markdown`, {md : noteEdit.value}).then(data => notePreview.innerHTML = data.payload)
+        commonNet.fetch_middleware(`/p/a/markdown`, {md : noteEdit.value}).then(data => notePreview.innerHTML = data.payload)
     }, 500)
 })
 
@@ -43,7 +43,7 @@ save.addEventListener("click", (e) => {
         content : noteEdit.value
     }
 
-    commonNet.fetch_middleware(window.location, data).then(window.location = window.location)
+    commonNet.fetch_middleware(window.location+'/edit', data)//.then(window.location = window.location)
 }, false)
 
 create_post.addEventListener('click', (e) => {
