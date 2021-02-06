@@ -1,17 +1,19 @@
 async function Spider(base, structure){
     // console.log(base, typeof(structure))
     return new Promise((yay, nay) => {
-
-        var ret = {}
+        var ret = {
+            root: document.querySelector(`${base}`)
+        }
         if(typeof(structure) === 'string')
             ret[structure] = document.querySelector(`${base} .${structure}`)
         else
             Object.keys(structure).forEach(async key => {
                 var value = structure[key]
                 // console.log(`${base} - ${key} - ${value}`)
-                if(typeof(value) === 'string')
-                    ret[value] = document.querySelector(`${base} .${value}`)
-                else{
+                if(typeof(value) === 'string'){
+                    ret[value] = document.querySelector(`${base} .${value}`)   
+                    if(ret[value] == null) throw nay(`Could not find element: ${base} .${value}`)
+                }else{
                     // console.log(key)
                     if(isNaN(key))
                         ret[key] = await Spider(`${base} .${key}`, value)
