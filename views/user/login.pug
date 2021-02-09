@@ -14,7 +14,7 @@ block user_menue_content
             img(src=captcha.url)
             input#captcha(type='text' name=captcha.name)
         input#submit(type='submit')
-        input#csrf(type='hidden' value=token)
+        input#csrf(type='hidden' value=csrf_token)
 
 block scripts
     script=`const captchaRefreshUrl = '${captcha.url}'`

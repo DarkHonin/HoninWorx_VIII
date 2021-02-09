@@ -1,0 +1,29 @@
+extends ../template.pug
+
+block content
+    article
+        form.container#userForm
+            .head
+                .title=target == undefined ? 'Create new user' : 'Editing user: '+target.displayName
+                .buttons 
+                    .button.hover.submit(data-title=(target ? 'Save' : 'Create'))
+                        .i.fa(class=(target ? 'fa-save' : 'fa-plus'))
+                    .button.hover.delete(data-title='Delete')
+                        .i.fa.fa-trash
+            .row
+                label Username:
+                input.username(type='text' name='username' placeholder=(target ? target.displayName : 'Username'))
+            .row
+                label=(target ? 'Change password:' : 'Password')
+                input.password(type='password' name='new-password')
+            .row
+                label Is administrator
+                input.is_admin(type='checkbox' checked=(target && target.admin) value='true' name='admin' disabled=(target && user && target._id == user._id))
+            input.csrf_token(type='hidden' value=csrf_token name='csrf_token')
+            input.action(type='hidden' value=(target ? 'update': 'create') name='action')
+            input.id(type='hidden' value=(target ? target._id : '') name='id')
+
+block scripts 
+    script(src="/javascripts/common.js")
+    script(src="/javascripts/spider.js")
+    script(src="/javascripts/user/form.js")

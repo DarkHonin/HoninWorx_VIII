@@ -9,7 +9,7 @@ const titlePreivew = document.querySelector("#display .title")
 const save = document.querySelector("#save")
 const del = document.querySelector("#delete")
 const create_post = document.querySelector("#newPost")
-const togglePreview = document.querySelector("#togglePreview")
+const togglePreview = document.querySelector(".toggle")
 
 var timer = false
 noteEdit.addEventListener('keyup', e => {

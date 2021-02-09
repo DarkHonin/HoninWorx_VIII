@@ -35,7 +35,19 @@ const mediaUpload = Spider('#mediaUpload', {
         payload.title = mu.title.value
         if(!payload.title) return alert('A title is required')
         if(!payload.image) return alert('Please select a file')
-        commonNet.fetch_middleware('/')
+        commonNet.fetchForm_middleware('/m/create', payload).then(j => {
+            let data = j.data
+            commonNet.fetch_middleware('/m/create/u', {
+                title : payload.title,
+                thumbnail : data.thumb.url,
+                url : data.display_url,
+                meta : {
+                    src : data.url,
+                    filename : data.title,
+                    delete : data.delete_url
+                }
+            })
+        })
     })
 })
 

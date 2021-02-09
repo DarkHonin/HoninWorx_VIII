@@ -1,25 +1,26 @@
 extends ../template.pug
 
 block content
-    article
-        .container#tools
-            .head.buttons
-                .button.main.hover#newPost(data-title='Create new post' data-href='/p/a/create')
+    article#postEditor
+        input.id(type='hidden' value=(focus ? focus.id : ObjectId()))
+        .container
+            .head.buttons.controll
+                .button.main.hover.new(data-title='Create new post' data-href='/p/a/create')
                         i.fas.fa-plus
                 .button.buttons
-                    .button.hover#save(data-title='Save')
+                    .button.hover.save(data-title='Save')
                         i.fas.fa-save
-                    .button.hover#delete(data-title='Delete current')
+                    .button.hover.delete(data-title='Delete current')
                         i.fas.fa-trash
-                    .button.hover#togglePreview(data-title='Toggle preview')
+                    .button.hover.toggle(data-title='Toggle preview')
                         i.fas.fa-eye
-        if(focus)
-            .container#edit
-                span.head
-                    input(type='text' value=(focus ? focus.title : '')).title
-                textarea().body=(focus ? focus.content : '')
+        
+        .container.payload
+            span.head
+                input(type='text' value=(focus ? focus.title : '')).title
+            textarea().body.content=(focus ? focus.content : '')
 
-        .container#display
+        .container.display
             if(focus)
                 span.head
                     span.title=focus.title
@@ -28,11 +29,11 @@ block content
                             i.fas.fa-hourglass-start
                         .button.hover(data-title=`Updated: ${focus.updatedTimeStamp()}`)
                             i.fas.fa-hourglass-start
-                div.body!=focus.markdown()
+                div.body.content!=focus.markdown()
             else
                 span.head
                     span.title Welcome to the editor
-                div.body
+                div.body.content
                     h1 The Post Editor
                     p Its still a work in progress and I can already see allot of security flaws. But not too worry. Its not for anyone else to use yet.
 
@@ -84,5 +85,6 @@ block content
 block scripts
     script(src="/javascripts/search.js")
     script(src="/javascripts/list.js")
-    script(src="/javascripts/edit.js")
-    script(src="/javascripts/media.js")
+    script(src="/javascripts/spider.js")
+    script(src="/javascripts/post/editor.js")
+    //- script(src="/javascripts/media.js")

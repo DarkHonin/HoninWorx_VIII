@@ -12,35 +12,56 @@ const md = new MarkdownIt().use(markdownItAttrs, {
     allowedAttributes: ['id', 'class',]
 })
 
+const abstractObject = {
+    name : String,
+    author : {type : mongoose.Types.ObjectId, ref : "user"}
+}
+
+const abstractMethods = {
+    
+    createdTimeStamp : function(){
+        var date = new Date(this.createdAt)
+        return date.toLocaleDateString()
+    },
+
+    updatedTimeStamp : function(){
+        var date = new Date(this.updatedAt)
+        return date.toLocaleDateString()
+    }
+}
+
+
 const mediaSchema = new mongoose.Schema({
+    ...abstractObject,
     type : {type: String, enum : ['img', 'video'] },
-    title : String,
-    thumbnail : String,
-    url : String,
-    meta : {}
+    thumbnail : {
+        size : Number,
+        url : String
+    },
+    display : {
+        size : Number,
+        url : String
+    },
+    file : {
+        name : String,
+        url : String,
+        delete_url : String
+    }
   }, { timestamps: true });
 
-  mediaSchema.methods.createdTimeStamp = function(){
-    var date = new Date(this.createdAt)
-    return date.toLocaleDateString()
-}
-
-mediaSchema.methods.updatedTimeStamp = function(){
-    var date = new Date(this.updatedAt)
-    return date.toLocaleDateString()
-}
-
-
+Object.assign(mediaSchema.methods, abstractMethods)
 
 const mediaModel = mongoose.model('Media', mediaSchema)
 
 const postSchema = new mongoose.Schema({
-    title : {type : String, required : true, unique : true},
+    ...abstractObject,
     content : String,
     media : [
         {type : mongoose.Types.ObjectId, ref : "Media"}
     ]
   }, { timestamps: true });
+
+Object.assign(postSchema.methods, postSchema)
 
 postSchema.methods.markdown = function(){
     if(!this.content)
@@ -48,42 +69,6 @@ postSchema.methods.markdown = function(){
     return md.render(this.content)
 }
 
-
-postSchema.methods.createdTimeStamp = function(){
-    var date = new Date(this.createdAt)
-    return date.toLocaleDateString()
-}
-
-postSchema.methods.updatedTimeStamp = function(){
-    var date = new Date(this.updatedAt)
-    return date.toLocaleDateString()
-}
-
 const postModel = mongoose.model('Posts', postSchema)
 
-
-const projectSchema = new mongoose.Schema({
-    post : {type : mongoose.Types.ObjectId, ref : "Posts"},
-    children : [
-        {type : mongoose.Types.ObjectId, ref : "Posts"}
-    ],
-    meta : {}
-  }, { timestamps: true });
-
-
-projectSchema.methods.createdTimeStamp = function(){
-    var date = new Date(this.createdAt)
-    return date.toLocaleDateString()
-}
-
-projectSchema.methods.updatedTimeStamp = function(){
-    var date = new Date(this.updatedAt)
-    return date.toLocaleDateString()
-}
-
-// projectSchema.set('toObject', { virtuals: true });
-// projectSchema.set('toJSON', { virtuals: true });
-
-const projectModel = mongoose.model('Project', projectSchema)
-
-module.exports = {projectModel, postModel, mediaModel, md}
+module.exports = {postModel, mediaModel, md, abstract : {abstractObject, abstractObjectSchema}}

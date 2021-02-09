@@ -1,9 +1,9 @@
-var express = require('express');
 
 var {ObjectId} = require('mongoose').Types
 
 var restSchema = require('../common/restSchema')
-
+var express = require('express');
+var router = express.Router({mergeParams : true});
 
 
 

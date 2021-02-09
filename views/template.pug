@@ -15,14 +15,26 @@ html(lang="en")
                     span About
                 a.button(href='/contact')
                     span Contact
-                if currentUser
-                    a.button.hover(href='/u/logout')
-                        span Logout
-                        span.minor=currentUser.uname
+                if user
+                    a.button.hover(href=`/u/${user._id}`)
+                        span.minor=user.displayName
 
         .container#mainContainer
             block content
         footer
-            p Page footer
+            ul.col
+                .head 
+                    .title Quick Links
+                li(data-href='/') Home
+                li(data-href='/about') About
+                li(data-href='/contact') Contact
+
+            .buttons
+                if user
+                    .button(data-href='/logout' data-title='Logout')
+                        i.fa.fa-sign-out-alt
+                else
+                    .button(data-href='/login' data-title='Login')
+                        i.fa.fa-sign-in-alt
         block scripts
         include template/foot/javascript.pug
