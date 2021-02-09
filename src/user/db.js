@@ -4,14 +4,16 @@ const db = mongoose.connection
 const crypto = require('crypto')
 
 const abstractUser = {
-    uname : {type: String, required : true},
+    displayName : {type: String, required : true},
     hash : String,
-    meta : {},
-    role : {
-        type : String,
-        enum : ['user', 'admin'],
-        default : 'visitor'
-    }
+    meta : {
+        provider : {
+            type : String,
+            enum : ['local']
+        },
+        id : mongoose.Types.ObjectId
+    },
+    admin : Boolean
   }
 
 const userSchema = new mongoose.Schema(abstractUser, { timestamps: true });
@@ -34,7 +36,7 @@ userSchema.methods.login = async function(password){
     })
 }
 
-userSchema.statics.setPassword = async function(password){
+function hashPassword(password){
     return new Promise((resolve, reject) => {
         // generate random 16 bytes long salt
         const salt = crypto.randomBytes(16).toString("hex")
@@ -43,27 +45,21 @@ userSchema.statics.setPassword = async function(password){
             if (err) reject(err);
             resolve(salt + ":" + derivedKey.toString('hex'))
         });
-    }).then(hash => this.hash = hash).save()
-}
-
-userSchema.statics.createUser = async function({username, password, meta = {}, role}){
-    return new Promise((resolve, reject) => {
-        // generate random 16 bytes long salt
-        const salt = crypto.randomBytes(16).toString("hex")
-
-        crypto.scrypt(password, salt, 64, (err, derivedKey) => {
-            if (err) reject(err);
-            resolve(salt + ":" + derivedKey.toString('hex'))
-        });
-    }).then(hash => new userModel({uname : username, hash, meta, role}).save())
-}
-
-userSchema.statics.has_admin = function(){
-    return userModel.findOne({role : "admin"}).then(admin => {
-        return admin && admin.role === 'admin'
+        
     })
+}
+
+userSchema.methods.setPassword = async function(password){
+    console.log(this.hash)
+    this.hash = await hashPassword(password)
+    console.log(this.hash)
+}
+
+userSchema.statics.createUser = async function({username, password, meta = {provider : 'local', id : new mongoose.Types.ObjectId()}, admin=false}){
+    var model = new userModel({displayName : username, meta, admin})
+    return model.setPassword(password).then(() => model.save())
 }
 
 const userModel = mongoose.model('user', userSchema)
 
-module.exports = {userSchema, userModel, roles : abstractUser.role.enum}
+module.exports = {userSchema, userModel}
