@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "nodemon ./bin/www",
-    "jsx": "npx babel --watch ./assets/react --out-dir ./public/javascript --presets react-app/prod",
+    "jsx": "npx babel --watch ./assets/react --out-dir ./react_build --presets react-app/prod",
     "sass": "sass assets/sass:public/css --watch"
   },
   "dependencies": {
