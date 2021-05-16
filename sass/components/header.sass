@@ -1,0 +1,39 @@
+.header
+    top: 0px
+    display: flex
+    flex-direction: row
+    border: 1px red solid
+    position: fixed
+    width: 100%
+    .logo
+        border: 1px green solid
+        width: 250px
+        height: 250px
+        transition: width .5s, height .5s
+    nav
+        height: 7ex
+        border: 1px orange solid
+        flex: 1
+        display: flex
+        justify-content: flex-end
+        &>*
+            margin: auto 1ex
+    &.small
+        .logo
+            width: 7ex
+            height: 7ex
+@media screen and (max-width: 500px)
+    .header
+        flex-direction: column-reverse
+        nav
+            justify-content: center        
+            min-height: 7ex
+
+        .logo
+            height: 7rem
+            width: 7rem
+            margin: auto
+
+        &.small
+            .logo
+                height: 0ex

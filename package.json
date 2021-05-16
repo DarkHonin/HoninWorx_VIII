@@ -4,38 +4,26 @@
   "private": true,
   "scripts": {
     "start": "nodemon ./bin/www",
-    "jsx": "npx babel --watch ./assets/react --out-dir ./react_build --presets react-app/prod",
-    "sass": "sass assets/sass:public/css --watch"
+    "jsx": "npx babel --watch ./src --out-dir ./react_build --presets react-app/prod",
+    "sass": "sass sass:dist/css --watch"
   },
   "dependencies": {
-    "@gerhobbelt/markdown-it-attrs": "^3.0.3-20",
-    "@gerhobbelt/markdown-it-container": "^3.0.0-6",
+    "@babel/core": "^7.14.2",
+    "@babel/preset-env": "^7.14.2",
+    "@babel/preset-react": "^7.13.13",
     "babel-cli": "^6.26.0",
-    "babel-preset-react-app": "^3.1.2",
-    "cookie-parser": "~1.4.4",
-    "crypto": "^1.0.1",
-    "debug": "~2.6.9",
-    "dotenv": "^8.2.0",
-    "express": "~4.16.1",
-    "express-mongodb": "0.0.4",
-    "express-session": "^1.17.1",
-    "googleapis": "^67.0.0",
-    "googlephotos": "^0.3.3",
-    "http-errors": "~1.6.3",
-    "jstransformer-coffee-script": "^1.1.1",
-    "jstransformer-markdown-it": "^2.1.0",
-    "markdown-it": "^12.0.3",
-    "markdown-it-imsize": "^2.0.1",
-    "mongoose": "^5.11.4",
-    "morgan": "~1.9.1",
-    "mysql": "^2.18.1",
-    "node-sass-middleware": "0.11.0",
-    "pug": "2.0.0-beta11",
-    "react-markdown": "^5.0.3",
-    "svg-captcha-express": "^1.0.8"
+    "babel-loader": "^8.0.2",
+    "babel-preset-react-app": "^3.1.2"
   },
-  "main": "app.js",
-  "devDependencies": {},
+  "main": "index.html",
+  "devDependencies": {
+    "css-loader": "^5.2.4",
+    "html-loader": "^2.1.2",
+    "sass": "^1.32.13",
+    "sass-loader": "^11.1.1",
+    "style-loader": "^2.0.0",
+    "webpack": "^5.37.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DarkHonin/HoninWorx_VIII.git"
