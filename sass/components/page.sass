@@ -1,0 +1,26 @@
+.page
+    border: 1px green solid
+    min-height: 100vh
+    display: flex
+    flex-direction: row
+    justify-content: space-evenly
+    
+    .context
+        border: 1px red solid
+        margin: auto
+        min-width: 25vw
+        .header
+            text-align: left
+            font-size: 3ex
+            padding-left: 2ex
+        .body
+            padding: 1ex
+
+
+@media screen and (max-width: 500px)
+    .page
+        flex-direction: column
+        margin-top: 200px
+        .context
+            min-width: unset
+            width: 100%

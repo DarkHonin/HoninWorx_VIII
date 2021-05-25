@@ -1,4 +1,6 @@
 
+import {Link} from 'react-router-dom'
+
 class Header extends React.Component{
     constructor(props){
         super(props)
@@ -24,12 +26,13 @@ class Header extends React.Component{
         return <div className={`header ${this.state.expanded ? '' : 'small'}` }>
             <div className='logo'>Logo</div>
             <nav>
-                <a href='./'>Home</a>
-                <a href='./'>Gallery</a>
-                <a href='./'>Sign Up/Sign In</a>
+                <Link to='/'>Home</Link>
+                <Link to='gallery'>Gallery</Link>
+                <Link to='signin'>Sign In</Link>
+                <Link to='signup'>Sign Up</Link>
             </nav>
         </div>
     }
 }
 
-module.exports = Header
+export default Header

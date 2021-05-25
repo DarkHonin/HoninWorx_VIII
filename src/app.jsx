@@ -1,16 +1,25 @@
 import Header from './elements/header.jsx'
 import Footer from './elements/footer.jsx'
 
-class App extends React.Component{
+import Landing from './views/Landing.jsx'
 
+import { HashRouter as Router, Route, Switch } from 'react-router-dom'
+
+class App extends React.Component{
     render(){
         return <main>
-            <Header />
-            <div className='page'></div>
-            <Footer />
+            <Router>
+                <Header/>
+                <Switch>
+                    <Route exact path="/" component={Landing} />
+                    <Route path="*">
+                        <h2>404</h2>
+                    </Route>
+                </Switch>
+                <Footer />
+            </Router>
         </main>
     }
-
 }
 
 ReactDOM.render(

@@ -1,4 +1,16 @@
 .footer
     border: 1px solid pink
     height: 7ex
-    
+    display: flex
+    flex-direction: row
+
+    justify-content: space-evenly
+    &>div
+        border: 1px black solid
+        font-size: 1ex
+        display: flex
+        flex-direction: column
+        justify-content: center
+@media screen and (max-width: 500px)
+    .footer
+        justify-content: space-between
